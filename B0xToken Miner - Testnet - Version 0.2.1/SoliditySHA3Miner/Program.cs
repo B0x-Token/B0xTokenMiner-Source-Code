@@ -181,7 +181,7 @@ namespace SoliditySHA3Miner
             var cudaVersion = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "10.0" : "9.2";
             return "\n" +
                 $"*** {GetApplicationName()} {GetApplicationVersion()} forked from IwYeo's SoliditySHA3Miner - {GetCompanyName()} ({GetApplicationYear()}) ***\n" +
-                $"*** Built with .NET 5.0 SDK, VC++ 19.28.29914, gcc 4.8.5, nVidia CUDA SDK 10.2 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)\n" +
+                $"*** Built with .NET 6.0 SDK, VC++ 19.44.35213, gcc 4.8.5, nVidia CUDA SDK 12.8 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)\n" +
                 "\n" +
                 "Donation addresses:\n" +
                 "ETH (or any ERC 20/918 tokens)	: 0x9172ff7884CEFED19327aDaCe9C470eF1796105c\n" +

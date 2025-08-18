@@ -4,13 +4,13 @@ All-in-one mixed multi-GPU (nVidia, AMD, Intel) & CPU miner solves proof of work
 Current latest public release version: 1.2.0
 Runs on Windows x64.
 
-Built with .NET 5.0, VC++ 19.28.29914, gcc 4.8.5, nVidia CUDA SDK 10.2 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
-.NET Core 5.0 can be downloaded from https://dotnet.microsoft.com/download/dotnet/thank-you/runtime-5.0.5-windows-x64-installer
+Built with .NET 6.0, VC++ 19.28.29914, gcc 4.8.5, nVidia CUDA SDK 12.8 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
+.NET Core 6.0 can be downloaded from https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-6.0.428-windows-x64-installer
 VC++ 2019 can be downloaded from https://aka.ms/vs/16/release/vc_redist.x64.exe (https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
-CUDA 9.2 requires a minimum nVidia driver version of 396 [https://www.nvidia.com/drivers/beta]
+CUDA 12.8 requires a minimum nVidia driver version of 580 [https://www.nvidia.com/drivers/beta]
 
 LICENSE
-0xPOWminer is licensed under the Apache License, Version 2.0 (the "License");
+B0xToken Miner is licensed under the Apache License, Version 2.0 (the "License");
 Libraries are included in the Software under the following license terms:
 - libkeccak-tiny https://github.com/coruus/keccak-tiny/
 - Nethereum https://github.com/Nethereum/Nethereum/blob/master/LICENSE.md
