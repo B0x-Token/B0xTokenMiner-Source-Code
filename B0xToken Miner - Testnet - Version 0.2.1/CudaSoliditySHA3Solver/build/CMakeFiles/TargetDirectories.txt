@@ -1,0 +1,3 @@
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/CudaSoliditySHA3Solver/build/CMakeFiles/rebuild_cache.dir
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/CudaSoliditySHA3Solver/build/CMakeFiles/edit_cache.dir
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/CudaSoliditySHA3Solver/build/CMakeFiles/CudaSoliditySHA3Solver.dir

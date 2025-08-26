@@ -1,0 +1,134 @@
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner/BasedWorkToken
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner/BasedWorkToken.deps.json
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner/BasedWorkToken.runtimeconfig.json
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner/BasedWorkToken.dll
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.AssemblyReference.cache
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.GeneratedMSBuildEditorConfig.editorconfig
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.AssemblyInfoInputs.cache
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.AssemblyInfo.cs
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.CoreCompileInputs.cache
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.CopyComplete
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/BasedWorkToken.dll
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/refint/BasedWorkToken.dll
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.genruntimeconfig.cache
+/home/ti/Documents/testing/Lentum/Miner/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/ref/BasedWorkToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.AssemblyReference.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.GeneratedMSBuildEditorConfig.editorconfig
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.AssemblyInfoInputs.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.AssemblyInfo.cs
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.CoreCompileInputs.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.CopyComplete
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.genruntimeconfig.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner+/BasedWorkToken
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner+/BasedWorkToken.deps.json
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner+/BasedWorkToken.runtimeconfig.json
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner+/BasedWorkToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner/B0xToken
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner/B0xToken.deps.json
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner/B0xToken.runtimeconfig.json
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/miner/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/refint/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/BaseWorkToken - Testnet - Version 8.2.4/SoliditySHA3Miner/obj/Release/net6.0/ref/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/miner/B0xToken
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/miner/B0xToken.deps.json
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/miner/B0xToken.runtimeconfig.json
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/miner/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.AssemblyReference.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.GeneratedMSBuildEditorConfig.editorconfig
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.AssemblyInfoInputs.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.AssemblyInfo.cs
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.CoreCompileInputs.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.CopyComplete
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/refint/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.genruntimeconfig.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/ref/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/miner/B0xToken
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/miner/B0xToken.deps.json
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/miner/B0xToken.runtimeconfig.json
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/miner/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.AssemblyReference.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.GeneratedMSBuildEditorConfig.editorconfig
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.AssemblyInfoInputs.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.AssemblyInfo.cs
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.CoreCompileInputs.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.csproj.CopyComplete
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/refint/B0xToken.dll
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/SoliditySHA3Miner.genruntimeconfig.cache
+/home/ti/Documents/testing/Lentum/Miner/LentumNew/miner-source-final-main/B0xToken Miner - Testnet - Version 0.1.3/SoliditySHA3Miner/obj/Release/net6.0/ref/B0xToken.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\B0xToken.exe
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\B0xToken.deps.json
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\B0xToken.runtimeconfig.json
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\B0xToken.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\ADRaffy.ENSNormalize.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\BouncyCastle.Crypto.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Common.Logging.Core.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\NBitcoin.Secp256k1.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.ABI.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Accounts.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.BlockchainProcessing.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Contracts.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Hex.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.JsonRpc.Client.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.JsonRpc.RpcClient.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.KeyStore.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Merkle.Patricia.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Model.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.RLP.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.RPC.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Signer.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Signer.EIP712.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Util.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Util.Rest.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Web3.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\bin\Release\net6.0\Newtonsoft.Json.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.csproj.AssemblyReference.cache
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.AssemblyInfoInputs.cache
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.AssemblyInfo.cs
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.csproj.CoreCompileInputs.cache
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\Solidity.C88B1C2F.Up2Date
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\B0xToken.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\refint\B0xToken.dll
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.genruntimeconfig.cache
+C:\Users\User\Desktop\Miners Source Code V1.0\B0xToken V0.0.1\B0xToken Miner - Testnet - Version 0.1.3 v7\SoliditySHA3Miner\obj\Release\net6.0\ref\B0xToken.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\B0xToken.exe
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\B0xToken.deps.json
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\B0xToken.runtimeconfig.json
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\B0xToken.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\ADRaffy.ENSNormalize.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\BouncyCastle.Crypto.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Common.Logging.Core.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\NBitcoin.Secp256k1.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.ABI.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Accounts.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.BlockchainProcessing.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Contracts.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Hex.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.JsonRpc.Client.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.JsonRpc.RpcClient.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.KeyStore.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Merkle.Patricia.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Model.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.RLP.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.RPC.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Signer.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Signer.EIP712.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Util.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Util.Rest.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Nethereum.Web3.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\bin\Release\net6.0\Newtonsoft.Json.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.csproj.AssemblyReference.cache
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.AssemblyInfoInputs.cache
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.AssemblyInfo.cs
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.csproj.CoreCompileInputs.cache
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\Solidity.C88B1C2F.Up2Date
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\B0xToken.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\refint\B0xToken.dll
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\SoliditySHA3Miner.genruntimeconfig.cache
+C:\Users\User\Documents\GitHub\B0xTokenMiner-Source-Code\B0xToken Miner - Testnet - Version 0.2.1\SoliditySHA3Miner\obj\Release\net6.0\ref\B0xToken.dll

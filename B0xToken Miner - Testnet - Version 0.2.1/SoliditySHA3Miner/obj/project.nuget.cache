@@ -1,0 +1,120 @@
+{
+  "version": 2,
+  "dgSpecHash": "YZlgZ8thhKA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\User\\.nuget\\packages\\adraffy.ensnormalize\\0.1.5\\adraffy.ensnormalize.0.1.5.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\bouncycastle\\1.8.9\\bouncycastle.1.8.9.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\common.logging.core\\3.4.1\\common.logging.core.3.4.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.csharp\\4.0.1\\microsoft.csharp.4.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\6.0.0\\microsoft.extensions.logging.abstractions.6.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.platforms\\1.0.1\\microsoft.netcore.platforms.1.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\microsoft.netcore.targets\\1.0.1\\microsoft.netcore.targets.1.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nbitcoin.secp256k1\\3.1.1\\nbitcoin.secp256k1.3.1.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.abi\\4.29.0\\nethereum.abi.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.accounts\\4.29.0\\nethereum.accounts.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.blockchainprocessing\\4.29.0\\nethereum.blockchainprocessing.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.contracts\\4.29.0\\nethereum.contracts.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.hex\\5.0.0\\nethereum.hex.5.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.jsonrpc.client\\4.29.0\\nethereum.jsonrpc.client.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.jsonrpc.rpcclient\\4.29.0\\nethereum.jsonrpc.rpcclient.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.keystore\\4.29.0\\nethereum.keystore.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.merkle.patricia\\4.29.0\\nethereum.merkle.patricia.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.model\\4.29.0\\nethereum.model.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.rlp\\5.0.0\\nethereum.rlp.5.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.rpc\\4.29.0\\nethereum.rpc.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.signer\\4.29.0\\nethereum.signer.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.signer.eip712\\4.29.0\\nethereum.signer.eip712.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.util\\5.0.0\\nethereum.util.5.0.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.util.rest\\4.29.0\\nethereum.util.rest.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\nethereum.web3\\4.29.0\\nethereum.web3.4.29.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\newtonsoft.json\\11.0.2\\newtonsoft.json.11.0.2.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\portable.bouncycastle\\1.8.2\\portable.bouncycastle.1.8.2.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.collections\\4.0.11\\system.collections.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.diagnostics.debug\\4.0.11\\system.diagnostics.debug.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.dynamic.runtime\\4.0.11\\system.dynamic.runtime.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.globalization\\4.0.11\\system.globalization.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.io\\4.1.0\\system.io.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.linq\\4.1.0\\system.linq.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.linq.expressions\\4.1.0\\system.linq.expressions.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.objectmodel\\4.0.12\\system.objectmodel.4.0.12.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.reflection\\4.1.0\\system.reflection.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.reflection.emit\\4.0.1\\system.reflection.emit.4.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.reflection.emit.ilgeneration\\4.0.1\\system.reflection.emit.ilgeneration.4.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.reflection.emit.lightweight\\4.0.1\\system.reflection.emit.lightweight.4.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.reflection.extensions\\4.0.1\\system.reflection.extensions.4.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.reflection.primitives\\4.0.1\\system.reflection.primitives.4.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.reflection.typeextensions\\4.1.0\\system.reflection.typeextensions.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.resources.resourcemanager\\4.0.1\\system.resources.resourcemanager.4.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.runtime\\4.1.0\\system.runtime.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.runtime.extensions\\4.1.0\\system.runtime.extensions.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.runtime.handles\\4.0.1\\system.runtime.handles.4.0.1.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.runtime.interopservices\\4.1.0\\system.runtime.interopservices.4.1.0.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.text.encoding\\4.0.11\\system.text.encoding.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.threading\\4.0.11\\system.threading.4.0.11.nupkg.sha512",
+    "C:\\Users\\User\\.nuget\\packages\\system.threading.tasks\\4.0.11\\system.threading.tasks.4.0.11.nupkg.sha512"
+  ],
+  "logs": [
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'BouncyCastle' 1.8.9 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-8xfc-gm6g-vgpv",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'BouncyCastle' 1.8.9 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-m44j-cfrm-g8qc",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1902",
+      "level": "Warning",
+      "message": "Package 'BouncyCastle' 1.8.9 has a known moderate severity vulnerability, https://github.com/advisories/GHSA-v435-xc8x-wvr9",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "message": "Package 'Newtonsoft.Json' 11.0.2 has a known high severity vulnerability, https://github.com/advisories/GHSA-5crp-9r3c-p9vr",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "libraryId": "Newtonsoft.Json",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "message": "Package 'BouncyCastle 1.8.9' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net6.0'. This package may not be fully compatible with your project.",
+      "projectPath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "warningLevel": 1,
+      "filePath": "C:\\Users\\User\\Documents\\GitHub\\B0xTokenMiner-Source-Code\\B0xToken Miner - Testnet - Version 0.2.1\\SoliditySHA3Miner\\SoliditySHA3Miner.csproj",
+      "libraryId": "BouncyCastle",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
+}
