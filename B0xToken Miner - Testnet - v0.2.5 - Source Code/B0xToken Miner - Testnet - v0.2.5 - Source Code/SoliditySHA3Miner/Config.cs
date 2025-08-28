@@ -937,7 +937,7 @@ namespace SoliditySHA3Miner
         {
             public const string InfuraAPI_mainnet = "https://sepolia.base.org/";
             public const string InfuraAPI_ropsten = "";
-            public const string contractAddress = "0x4571a464d2c24424B8756ba6D240e1A3e738887a";
+            public const string contractAddress = "0xb9dfCbeF359088ef2999e8ffa65eBe7c2338186F";
             public const int chainID = 84532;
             public const string Contract0xBTC_ropsten = "";
             public const string AbiFile0xBTC = "B0x.abi";
@@ -948,9 +948,9 @@ namespace SoliditySHA3Miner
             public const float GasApiMultiplier = 1f;
             public const float GasApiMultiplier2 = 4f;
 
-            public const int MaxSolvesperMint = 10;
+            public const int MaxSolvesperMint = 15;
             public const int MinSolvesperMint = 3;
-            public const float HowManyBlocksAWAYFromAdjustmentToSendMinimumBWORK = 500f;
+            public const float HowManyBlocksAWAYFromAdjustmentToSendMinimumBWORK = 300f;
             public const float GasApiOffset = 0.001f;
 
             public const string PoolPrimary = "";

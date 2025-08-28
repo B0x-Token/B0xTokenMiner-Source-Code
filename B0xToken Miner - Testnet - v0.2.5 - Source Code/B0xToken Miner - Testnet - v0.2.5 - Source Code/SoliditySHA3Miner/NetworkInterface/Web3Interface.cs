@@ -44,42 +44,52 @@ using Nethereum.Contracts.CQS;
 namespace SoliditySHA3Miner.NetworkInterface
 
 {
-    // Define the DTO at class level
-[FunctionOutput]
-public class TotalCostsOutputDTO : IFunctionOutputDTO
-{
-    [Parameter("uint256", "B0xYouGet", 1)]
-    public BigInteger B0xYouGet { get; set; }
-    
-    [Parameter("uint256", "ETHYouGet", 2)]
-    public BigInteger ETHYouGet { get; set; }
-    
-    [Parameter("uint256", "ETHyouSpend", 3)]
-    public BigInteger ETHyouSpend { get; set; }
-    
-    [Parameter("uint256", "ETHPrice", 4)]
-    public BigInteger ETHPrice { get; set; }
-    
-    [Parameter("uint256", "secondsFromPreviousMintreturn", 5)]
-    public BigInteger SecondsFromPreviousMintReturn { get; set; }
-}
 
-// Define the DTO at class level
-[FunctionOutput]
-public class BlockInfoOutputDTO : IFunctionOutputDTO
-{
-    [Parameter("uint256", "slowBlockz", 1)]
-    public BigInteger SlowBlockz { get; set; }
-    
-    [Parameter("uint256", "secondsUntilAdjustmentz", 2)]
-    public BigInteger SecondsUntilAdjustmentz { get; set; }
-    
-    [Parameter("uint256", "blocksFromReadjustz", 3)]
-    public BigInteger BlocksFromReadjustz { get; set; }
-    
-    [Parameter("uint256", "blocksToReadjustz", 4)]
-    public BigInteger BlocksToReadjustz { get; set; }
-}
+
+    // Define the DTO at class level
+    [FunctionOutput]
+    public class TotalCostsOutputDTO : IFunctionOutputDTO
+    {
+        [Parameter("uint256", "B0xYouGet", 1)]
+        public BigInteger B0xYouGet { get; set; }
+        
+        [Parameter("uint256", "ETHYouGet", 2)]
+        public BigInteger ETHYouGet { get; set; }
+        
+        [Parameter("uint256", "ETHyouSpend", 3)]
+        public BigInteger ETHyouSpend { get; set; }
+        
+        [Parameter("uint256", "ETHPrice", 4)]
+        public BigInteger ETHPrice { get; set; }
+        
+        [Parameter("uint256", "secondsFromPreviousMintreturn", 5)]
+        public BigInteger SecondsFromPreviousMintReturn { get; set; }
+
+        // Add parameterless constructor
+        public TotalCostsOutputDTO() { }
+    }
+
+    // Define the DTO at class level
+    [FunctionOutput]
+    public class BlockInfoOutputDTO : IFunctionOutputDTO
+    {
+        [Parameter("uint256", "slowBlockz", 1)]
+        public BigInteger SlowBlockz { get; set; }
+        
+        [Parameter("uint256", "secondsUntilAdjustmentz", 2)]
+        public BigInteger SecondsUntilAdjustmentz { get; set; }
+        
+        [Parameter("uint256", "blocksFromReadjustz", 3)]
+        public BigInteger BlocksFromReadjustz { get; set; }
+        
+        [Parameter("uint256", "blocksToReadjustz", 4)]
+        public BigInteger BlocksToReadjustz { get; set; }
+
+        // Add parameterless constructor
+        public BlockInfoOutputDTO() { }
+    }
+
+
     public class Web3Interface : NetworkInterfaceBase
     {
 
@@ -378,34 +388,10 @@ private static readonly TimeSpan SixHours = TimeSpan.FromHours(6);
 
         public override bool SubmitSolution(string address, byte[] digest, byte[] challenge, HexBigInteger difficulty, byte[] nonce, object sender)
         {
-
-            /*
-            for (int i = 0; i < 1; i++)
-            {
-                byte[] digest12 = digest;
-                byte[] challenge12 = challenge;
-                byte[] nonce12 = nonce;
-                BigInteger bb = difficulty.Value;
-                // Convert byte arrays to hexadecimal strings
-                string digestHex = "0x" + BitConverter.ToString(digest12).Replace("-", "");
-                string challengeHex = "0x" + BitConverter.ToString(challenge12).Replace("-", "");
-                string nonceHex = "0x" + BitConverter.ToString(nonce12).Replace("-", "");
-               // string chal1 = "0x" + BitConverter.ToString(challengeArrayFirstOld).Replace("-", "");
-               // string chal2 = "0x" + BitConverter.ToString(challengeArraySecondOld).Replace("-", "");
-
-                // Output the elements of the lists
-                Console.WriteLine($"START Digest: {digestHex}");
-                Console.WriteLine($"START Challenge: {challengeHex}");
-                Console.WriteLine($"START Nonce: {nonceHex}");
-                Console.WriteLine($"vs Difficulty: {(bb.ToString() )}");
-
-                Console.WriteLine(); // Adding a blank line for better readability
-            }
-            */
-
             lock (this)
             {  //this goes down to line 1356
-
+                    //Turn off solver
+                    OnStopSolvingCurrentChallenge(this);
 BigInteger getTotalETHowedtoSendtoContract = 0;
                
 /*
@@ -497,16 +483,16 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                         Console.ForegroundColor = ConsoleColor.Black; // Set text color to blue
                         Console.BackgroundColor = ConsoleColor.DarkRed; // Set background color to a darker blue
 
-                        Program.Print(string.Format("[INFO] Please enter your personal Address and Private Key in the B0xToken.conf Config File, using exposed privateKey"));
+                        Console.WriteLine(string.Format("[INFO] Please enter your personal Address and Private Key in the B0xToken.conf Config File, using exposed privateKey"));
 
 
-                        Program.Print(string.Format("[INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey"));
+                        Console.WriteLine(string.Format("[INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey"));
                         Program.Print(string.Format("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"));
                         Program.Print(string.Format("[INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey"));
 
+                        Console.ResetColor(); // Reset to default colors
                     }
 
-                    OnStopSolvingCurrentChallenge(this);
 
 
                     // Then in your main loop or wherever you want to check: check only once every 6 hours for miningReward
@@ -516,42 +502,53 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                         Program.Print($"Mining Reward currently is: {Web3.Convert.FromWei(resultfz, UnitConversion.EthUnit.Ether)} tokens");
                         M_current_miningReward = (float)Web3.Convert.FromWei(resultfz, UnitConversion.EthUnit.Ether);
                         lastMiningRewardCheck = DateTime.Now;
-                    }
+                    }else{
+                        
                         Program.Print($"Mining Reward currently is: {M_current_miningReward} tokens");
-
-
-               Console.ResetColor(); // Reset to default colors
-                           BigInteger slowBlocksz = 0;        // First return value
-                        BigInteger secondsFromTimetoTurnInAnswers = 0;      // Second return value  
-                        BigInteger blocksFromReadjustmentz = 0;  // Third return value   
-                        BigInteger blocksToReadjustmentz = 0;      // Forth return value  
-                      
-                    try { 
-
-                   //var result = m_getCostsALL.CallDeserializingToObjectAsync<TotalCostsOutputDTO>(compensationValue).GetAwaiter().GetResult();
-                    var result3 = m_getBlockInfo.CallDeserializingToObjectAsync<BlockInfoOutputDTO>().GetAwaiter().GetResult();
-                        slowBlocksz = result3.SlowBlockz;        // First return value
-                        secondsFromTimetoTurnInAnswers = result3.SecondsUntilAdjustmentz;      // Second return value  
-                        blocksFromReadjustmentz = result3.BlocksFromReadjustz;  // Third return value   
-                        blocksToReadjustmentz = result3.BlocksToReadjustz;      // Forth return value  
-                      
-                    Program.Print("slowBlocksz " + slowBlocksz);
-                  
-                    Program.Print("secondsFromTimetoTurnInAnswers " + secondsFromTimetoTurnInAnswers);
-                  
-                    Program.Print("blocksFromReadjustmentz " + blocksFromReadjustmentz);
-                  
-                    Program.Print("blocksToReadjustmentz " + blocksToReadjustmentz);
-                  
-
-                   // Program.Print("Mining seconds until probably time to turn in answers: " + MiningDifficultyfff.Value.ToString());
-                   // var MiningDifficultyfff =secondsFromTimetoTurnInAnswers;
-                    //If MiningDifficulty is less than 12 hours left we turn in answers, to allow us to fix any errors before too late
-                    //Var How late to turn in still
-                    }catch(Exception E)
-                    {
-                        Program.Print("Error in blockINFO!: "+E.Message);
                     }
+
+
+                        int maxRetries = 5;
+                        int currentRetry = 0;
+                        int baseDelay = 400;
+                        BlockInfoOutputDTO result3 = null; // Use explicit type instead of var with integer
+                        while (currentRetry < maxRetries)
+                        {
+                            try 
+                            { 
+                                result3 = m_getBlockInfo.CallDeserializingToObjectAsync<BlockInfoOutputDTO>().GetAwaiter().GetResult();
+                                  break; // Success - exit the loop
+                            }
+                            catch(Exception e)
+                            {
+                                currentRetry++;
+                                Program.Print($"[Error[API]] in blockINFO (attempt {currentRetry}/{maxRetries}): {e.Message}");
+                                
+                                if (currentRetry >= maxRetries)
+                                {
+                                    Program.Print("Max retries reached. Unable to get block info. Max retries reached. Unable to get block info.");
+                                    break;
+                                }
+                                
+                                // Exponential backoff with some jitter
+                                int delay = baseDelay * (int)Math.Pow(2, currentRetry - 1);
+                                Task.Delay(delay).Wait();
+                            }
+                        }
+
+                        
+                        BigInteger slowBlocksz = result3.SlowBlockz;     // First return value
+                        BigInteger secondsFromTimetoTurnInAnswers = result3.SecondsUntilAdjustmentz;      // Second return value  
+                        BigInteger blocksFromReadjustmentz = result3.BlocksFromReadjustz; // Third return value   
+                        BigInteger blocksToReadjustmentz = result3.BlocksToReadjustz;      // Forth return value  
+
+                                Program.Print("slowBlocksz " + slowBlocksz);
+                                Program.Print("secondsFromTimetoTurnInAnswers " + secondsFromTimetoTurnInAnswers);
+                                Program.Print("blocksFromReadjustmentz " + blocksFromReadjustmentz);
+                                Program.Print("blocksToReadjustmentz " + blocksToReadjustmentz);
+
+
+
                     var ShouldweTurnInAnswersNow = secondsFromTimetoTurnInAnswers < howManyHoursUntilTurnin;
                     Program.Print("Should we turn in Answers because we are close to Emergency Difficulty Adjustment: " + ShouldweTurnInAnswersNow);
                     //if (challenge.SequenceEqual(CurrentChallenge))
@@ -891,11 +888,24 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                     Console.WriteLine($"Updated currentCounterLocationStart accumulated: {currentCounterLocationStart}");
 
 
+
+                    var difzzzzz = currentCounter - currentCounterLocationStart;
+                    if(skipThisMany +difzzzzz > currentCounter){
+                        Console.WriteLine("Fixing error Code[01.0.2.4]");
+                        Program.Print(string.Format("Fixing error Code[01.0.2.4]"));
+                        skipThisMany = skipThisMany - 1;
+
+                    }
+
+
+
+
+
                     var miningParameters2f = GetMiningParameters2();
                     if (currentCounter-currentCounterLocationStart == 0 )
                     {
                         Program.Print(string.Format("Waiting for next solution"));
-                        OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
+                       // OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
                         return false;
                     }
 
@@ -915,9 +925,9 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
 // ADD THESE DEBUG LINES:
 //onsole.WriteLine($"nonceArray2.Length: {nonceArray2.Length}");
 //Console.WriteLine($"challengeArray2.Length: {challengeArray2.Length}");
-Console.WriteLine($"digestArray2.Length: {digestArray2.Length}");
-Console.WriteLine($"Trying to Skip({skipThisMany}) Take({currentCounter - currentCounterLocationStart})");
-Console.WriteLine($"Trying to Skip({skipThisMany}) Take({currentCounter - currentCounterLocationStart})");
+//Console.WriteLine($"digestArray2.Length: {digestArray2.Length}");
+//Console.WriteLine($"Trying to Skip({skipThisMany}) Take({currentCounter - currentCounterLocationStart})");
+//Console.WriteLine($"Trying to Skip({skipThisMany}) Take({currentCounter - currentCounterLocationStart})");
 
 
 
@@ -1186,7 +1196,7 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                         Program.Print(string.Format("STILL SOLVING, Solves til transaction sending: " + thiszzzzz));
 
                         Program.Print(string.Format("Waiting for next solution"));
-                        OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
+                      //  OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
                         return false;
                     }
                     if (totalMultiple < m_maxAnswersPerSubmit && totalMultiple < m_MinSolvesperMint && epochNumber5555 >= totalMultiple + 1)
@@ -1195,7 +1205,7 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                         Program.Print(string.Format("STILL SOLVING, Solves til transaction sending: " + thiszzzzz));
 
                         Program.Print(string.Format("Waiting for next solution"));
-                        OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
+                       // OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
                         return false;
                     }
 
@@ -1241,7 +1251,7 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                         Program.Print(string.Format("Waiting for next solution"));
 
                         var miningParameters2ff = GetMiningParameters2();
-                        OnNewChallenge(this, miningParameters2ff.ChallengeByte32, MinerAddress);
+                        //OnNewChallenge(this, miningParameters2ff.ChallengeByte32, MinerAddress);
                         return false;
                     }
 
@@ -1253,7 +1263,7 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                         Program.Print(string.Format("Waiting for next solution"));
 
                         var miningParameters2ff = GetMiningParameters2();
-                        OnNewChallenge(this, miningParameters2ff.ChallengeByte32, MinerAddress);
+                        //OnNewChallenge(this, miningParameters2ff.ChallengeByte32, MinerAddress);
                         return false;
                     }
 
@@ -1283,18 +1293,55 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
 
 
                     var mintNFT = false;
+                     Program.Print("m_getCostsALL"+ m_getCostsALL);
     if (m_getCostsALL != null)
     {
         try
         {
+
+               BigInteger getTotalB0x = 0;        // First return value
+            BigInteger getTotalETH = 0;      // Second return value  
+            BigInteger getTotalETHowed = 0;  // Add 10% for safety
+            BigInteger EthPriceUSDC = 0;      // Forth return value  
+            BigInteger secFromPrevious = 0;  // Fifth return value
+
+
+            int maxRetries2 = 5;
+            int currentRetry2 = 0;
+            int baseDelay2 = 400;
+            TotalCostsOutputDTO result = null;
             var compensationValue = totalMultiple;
-            var result = m_getCostsALL.CallDeserializingToObjectAsync<TotalCostsOutputDTO>(compensationValue).GetAwaiter().GetResult();
-                // ACCESS EACH VALUE using the property names from your DTO:
-            BigInteger getTotalB0x = result.B0xYouGet;        // First return value
-            BigInteger getTotalETH = result.ETHYouGet;      // Second return value  
-            BigInteger getTotalETHowed = result.ETHyouSpend * 110 / 100;  // Add 10% for safety
-            BigInteger EthPriceUSDC = result.ETHPrice;      // Forth return value  
-            BigInteger secFromPrevious = result.SecondsFromPreviousMintReturn;  // Fifth return value
+            while (currentRetry2 < maxRetries2)
+            {
+                try 
+                { 
+                    result = m_getCostsALL.CallDeserializingToObjectAsync<TotalCostsOutputDTO>(compensationValue).GetAwaiter().GetResult();
+                    break;
+                }catch(Exception e)
+                {
+                    currentRetry2++;
+                    Program.Print($"[Error[API]] in m_getCostsALL aka TotalTotalsAndETHpriceAndCurrentMintTime (attempt {currentRetry2}/{maxRetries2}): {e.Message}");
+                    
+                    if (currentRetry2 >= maxRetries2)
+                    {
+                        Program.Print("Max retries reached. Unable to get block info.");
+                        break; // Re-throw if you want to handle this upstream
+                    }
+                    
+                    // Exponential backoff with some jitter
+                    int delay = baseDelay2 * (int)Math.Pow(2, currentRetry2 - 1);
+
+                    Task.Delay(delay).Wait();
+                }
+            }
+                        // ACCESS EACH VALUE using the property names from your DTO:
+             getTotalB0x = result.B0xYouGet;        // First return value
+             getTotalETH = result.ETHYouGet;      // Second return value  
+             getTotalETHowed = result.ETHyouSpend * 110 / 100;  // Add 10% for safety
+             EthPriceUSDC = result.ETHPrice;      // Forth return value  
+             secFromPrevious = result.SecondsFromPreviousMintReturn;  // Fifth return value
+
+
             if(secFromPrevious < 60){
                 getTotalETHowed = result.ETHyouSpend * 135 / 100;  // Add 10% for safety
             } else if(secFromPrevious < 120){
@@ -1642,12 +1689,7 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                     do
                     {
 
-                        if (IsChallengedSubmitted(challenge))
-                        {
-                            Program.Print(string.Format("[INFO] Submission cancelled, nonce has been submitted for the current challenge."));
-                            OnNewChallenge(this, challenge, MinerAddress);
-                            return false;
-                        }
+                        
 
                         var startSubmitDateTime = DateTime.Now;
 
@@ -1769,7 +1811,7 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
 
 
 
-try{
+                        try{
 
 
                             var miningParameters4a = GetMiningParameters4();
@@ -2510,7 +2552,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                     Task.Delay(2000).Wait();
                                 var miningParameter22s = GetMiningParameters();
                                 var CurrentChallenge22 = miningParameter22s.ChallengeByte32;
-                                OnNewChallenge(this, CurrentChallenge22, MinerAddress);
+                               // OnNewChallenge(this, CurrentChallenge22, MinerAddress);
                                 Program.Print("SLEEP DONE after submit Time for another block");
 
                                 OnGetMiningParameterStatus(this, true);
@@ -2526,7 +2568,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                     OnlyRunPayMasterOnce = false;
                                     Program.Print(string.Format(test2));
 
-                                    OnNewChallenge(this, CurrentChallenge, MinerAddress);
+                                    //OnNewChallenge(this, CurrentChallenge, MinerAddress);
                                     return false;
                                 }
                                 string test3 = "[INFO] Bad nonces/challenges starting over resubmitting";
@@ -2587,7 +2629,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                         {
 
                             HandleAggregateException(ex);
-                            OnNewChallenge(this, challenge, MinerAddress);
+                            //OnNewChallenge(this, challenge, MinerAddress);
 
                             Program.Print("Invalid funds for xfer probably because we need to have fresh answers or deposit ETH on Base Blockchain into your mining account");
                             return false;
@@ -2598,7 +2640,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                         {   
 
                             HandleException(ex);
-                            OnNewChallenge(this, challenge, MinerAddress);
+                            //OnNewChallenge(this, challenge, MinerAddress);
 
                             Program.Print("Invalid funds for xfer probably because we need to have fresh answers or deposit ETH on Base Blockchain into your mining account");
                             return false;
@@ -2612,7 +2654,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                             if (retryCount > 10)
                             {
                                 Program.Print("[ERROR] Failed to submit solution for 50 times, submission cancelled.");
-                                OnNewChallenge(this, challenge, MinerAddress);
+                               // OnNewChallenge(this, challenge, MinerAddress);
 
                                 return false;
                             }

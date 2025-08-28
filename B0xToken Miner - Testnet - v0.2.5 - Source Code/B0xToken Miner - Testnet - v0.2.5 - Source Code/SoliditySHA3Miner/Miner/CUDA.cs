@@ -340,6 +340,7 @@ namespace SoliditySHA3Miner.Miner
                 deviceCUDA.HashCount = 0;
                 deviceCUDA.IsMining = true;
                 DateTime lastSubmitTime = DateTime.MinValue;
+                DateTime lastSubmitTime2 = DateTime.MinValue;
 
                 unsafe
                 {
@@ -373,14 +374,26 @@ namespace SoliditySHA3Miner.Miner
 
                         if (*solutionCount > 0)
                         {
-                            var solutionArray = (ulong[])Array.CreateInstance(typeof(ulong), *solutionCount);
-
-                            for (var i = 0; i < *solutionCount; i++)
-                                solutionArray[i] = solutions[i];
+                             // Check if enough time has passed since last submission (0.5 seconds)
+                            if ((DateTime.Now - lastSubmitTime2).TotalMilliseconds >= 500){
+                                
                             
-                            SubmitSolutions(solutionArray, currentChallenge, device.Type, device.Platform, deviceCUDA.DeviceID, *solutionCount, isKingMaking);
+                                    int solutionsToSubmit = Math.Min((int)*solutionCount, 4);
+                                    var solutionArray = new ulong[solutionsToSubmit];
 
-                            *solutionCount = 0;
+
+                                    for (var i = 0; i < *solutionCount; i++){
+                                        solutionArray[i] = solutions[i];
+                                    }
+
+                                    
+                                    SubmitSolutions(solutionArray, currentChallenge, device.Type, device.Platform, deviceCUDA.DeviceID, *solutionCount, isKingMaking);
+
+                                    *solutionCount = 0;
+                                    lastSubmitTime = DateTime.Now;  // Update the last submit time we dont need to run if they ran
+                                    lastSubmitTime2 = DateTime.Now;  // Update the last submit time we dont need to run if they ran
+                                    
+                            }
                         }
                         else if ((DateTime.Now - lastSubmitTime).TotalSeconds >= CheckMinAmountInterval)
                         {

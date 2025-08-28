@@ -85,6 +85,9 @@ dotnet build SoliditySHA3Miner/SoliditySHA3Miner.csproj -f net6.0 -c Release -o 
 
 cd CudaSoliditySHA3Solver
 
+# Remove the entire build directory
+rm -rf build
+
 mkdir build
 
 cd build
@@ -98,6 +101,9 @@ cp bin/Release/CudaSoliditySHA3Solver.so ../../miner/
 
 
 cd ../../CPUSoliditySHA3Solver/
+
+# Remove the entire build directory
+rm -rf build
 
 mkdir build
 
