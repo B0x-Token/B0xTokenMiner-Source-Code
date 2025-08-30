@@ -937,7 +937,7 @@ namespace SoliditySHA3Miner
         {
             public const string InfuraAPI_mainnet = "https://sepolia.base.org/";
             public const string InfuraAPI_ropsten = "";
-            public const string contractAddress = "0xb9dfCbeF359088ef2999e8ffa65eBe7c2338186F";
+            public const string contractAddress = "0x165E06eBE52346Fd5e1be20D6D56693364aE4ae0";
             public const int chainID = 84532;
             public const string Contract0xBTC_ropsten = "";
             public const string AbiFile0xBTC = "B0x.abi";
