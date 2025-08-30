@@ -79,6 +79,11 @@ namespace SoliditySHA3Miner.Miner
         {
             try
             {
+                foreach (var device in Devices.OfType<Device.CUDA>().Where(d => d.IsInitialized))
+                {
+                    CleanupDevice(device);
+                }
+
                 var disposeTask = Task.Factory.StartNew(() => base.Dispose());
 
                 if (UnmanagedInstance != IntPtr.Zero)
@@ -87,7 +92,10 @@ namespace SoliditySHA3Miner.Miner
                 if (!disposeTask.IsCompleted)
                     disposeTask.Wait();
             }
-            catch { }
+            catch (Exception ex)
+            {
+                PrintMessage("CUDA", string.Empty, -1, "Error", $"Dispose error: {ex.Message}");
+            }
         }
 
         #endregion IMiner
@@ -186,38 +194,41 @@ namespace SoliditySHA3Miner.Miner
                 else
                 {
                     float defaultIntensity = Device.CUDA.DEFAULT_INTENSITY;
-
                     if (isKingMaking)
                     {
-                        if (new string[] { "2080", "2070", "1080" }.Any(m => device.Name.IndexOf(m) > -1))
+                        // RTX 40/50 series - highest performance
+                        if (new string[] { "5090", "5080", "4090", "4080" }.Any(m => device.Name.IndexOf(m) > -1))
+                            defaultIntensity = 30.50f;
+                        else if (new string[] { "5070", "4070", "3090", "3080" }.Any(m => device.Name.IndexOf(m) > -1))
+                            defaultIntensity = 30.00f;
+                        else if (new string[] { "4060", "3070", "2080" }.Any(m => device.Name.IndexOf(m) > -1))
+                            defaultIntensity = 28.00f;
+                        else if (new string[] { "3060", "2070", "1080" }.Any(m => device.Name.IndexOf(m) > -1))
                             defaultIntensity = 27.54f;
-
                         else if (new string[] { "2060", "1070 TI", "1070TI" }.Any(m => device.Name.IndexOf(m) > -1))
                             defaultIntensity = 27.46f;
-
                         else if (new string[] { "2050", "1070", "980" }.Any(m => device.Name.IndexOf(m) > -1))
                             defaultIntensity = 27.01f;
-
                         else if (new string[] { "1060", "970" }.Any(m => device.Name.IndexOf(m) > -1))
                             defaultIntensity = 26.01f;
-
                         else if (new string[] { "1050", "960" }.Any(m => device.Name.IndexOf(m) > -1))
                             defaultIntensity = 25.01f;
                     }
                     else
                     {
-                        if (new string[] { "2080", "2070 TI", "2070TI", "1080 TI", "1080TI" }.Any(m => device.Name.IndexOf(m) > -1))
-                            defaultIntensity = 27.00f;
-
-                        else if (new string[] { "1080", "2070", "1070 TI", "1070TI" }.Any(m => device.Name.IndexOf(m) > -1))
+                        // RTX 40/50 series - highest performance
+                        if (new string[] { "5090", "5080", "4090", "4080" }.Any(m => device.Name.IndexOf(m) > -1))
+                            defaultIntensity = 30.00f;
+                        else if (new string[] { "5070", "4070", "3090", "3080" }.Any(m => device.Name.IndexOf(m) > -1))
+                            defaultIntensity = 29.50f;
+                        else if (new string[] { "4060", "3070", "2080", "2070 TI", "2070TI", "1080 TI", "1080TI" }.Any(m => device.Name.IndexOf(m) > -1))
+                            defaultIntensity = 27.50f;
+                        else if (new string[] { "3060", "1080", "2070", "1070 TI", "1070TI" }.Any(m => device.Name.IndexOf(m) > -1))
                             defaultIntensity = 26.33f;
-
                         else if (new string[] { "2060", "1070", "980" }.Any(m => device.Name.IndexOf(m) > -1))
                             defaultIntensity = 26.00f;
-
                         else if (new string[] { "2050", "1060", "970" }.Any(m => device.Name.IndexOf(m) > -1))
                             defaultIntensity = 25.50f;
-
                         else if (new string[] { "1050", "960" }.Any(m => device.Name.IndexOf(m) > -1))
                             defaultIntensity = 25.00f;
                     }
@@ -233,7 +244,7 @@ namespace SoliditySHA3Miner.Miner
                 device.DeviceCUDA_Struct.Grid = device.Grid;
                 device.IsAssigned = true;
 
-                // Add debug output to see what values are being set
+                /*Add debug output to see what values are being set
                 Program.Print($"CUDA Device {device.DeviceID} Configuration:");
                 Program.Print($"  MaxSolutionCount: {device.DeviceCUDA_Struct.MaxSolutionCount}");
                 Program.Print($"  Intensity: {device.DeviceCUDA_Struct.Intensity}");
@@ -245,7 +256,7 @@ namespace SoliditySHA3Miner.Miner
                 Program.Print($"  Grid.Y: {device.DeviceCUDA_Struct.Grid.Y}");
                 Program.Print($"  Grid.Z: {device.DeviceCUDA_Struct.Grid.Z}");
                 Program.Print($"  Total CUDA Cores: {device.DeviceCUDA_Struct.Grid.X * device.DeviceCUDA_Struct.Block.X}");
-
+                */
 
                 PrintMessage(device.Type, device.Platform, device.DeviceID, "Info", string.Format("Assigned device ({0})...", device.Name));
                 PrintMessage(device.Type, device.Platform, device.DeviceID, "Info", string.Format("Compute capability: {0}.{1}", device.DeviceCUDA_Struct.ComputeMajor, device.DeviceCUDA_Struct.ComputeMinor));
@@ -259,9 +270,25 @@ namespace SoliditySHA3Miner.Miner
                     Helper.CUDA.Solver.InitializeDevice(UnmanagedInstance, ref device.DeviceCUDA_Struct, errorMessage);
 
                     if (errorMessage.Length > 0)
-                        PrintMessage(device.Type, device.Platform, device.DeviceID, "Error", errorMessage.ToString());
-                    else
-                        device.IsInitialized = true;
+                    {
+                        PrintMessage(device.Type, device.Platform, device.DeviceID, "Error", $"InitializeDevice failed: {errorMessage}");
+                        device.IsInitialized = false;
+                        device.IsAssigned = false; // Prevent further use
+                        return; // Skip this device
+                    }
+
+                    // Additional check to ensure device memory pointers are valid
+                    if (device.DeviceCUDA_Struct.Solutions == IntPtr.Zero ||
+                        device.DeviceCUDA_Struct.SolutionCount == IntPtr.Zero)
+                    {
+                        PrintMessage(device.Type, device.Platform, device.DeviceID, "Error", "Device memory not allocated correctly.");
+                        device.IsInitialized = false;
+                        device.IsAssigned = false;
+                        return;
+                    }
+
+                    device.IsInitialized = true;
+                    PrintMessage(device.Type, device.Platform, device.DeviceID, "Info", "Device initialized successfully.");
                 }
             }
         }
@@ -302,11 +329,15 @@ namespace SoliditySHA3Miner.Miner
                 PrintMessage(device.Type, device.Platform, device.DeviceID, "Error", errorMessage.ToString());
         }
 
+        bool wasJustUnpaused = false;
         protected override void StartFinding(Device.DeviceBase device, bool isKingMaking)
         {
+
+            Program.Print("startfinding");
+            Console.WriteLine("startfinding");
             string jsonContent = File.ReadAllText("B0xToken.conf"); // replace with your JSON file
             JObject jsonObj = JObject.Parse(jsonContent);
-          
+
             // Access the 'MinZKBTCperMint' value
             double CheckMinAmountInterval = jsonObj["CheckMinAmountIntervalInSeconds"].Value<double>();
             // Use the value as needed
@@ -349,23 +380,59 @@ namespace SoliditySHA3Miner.Miner
                     *solutionCount = 0;
                     do
                     {
+
+                        bool wasJustUnpaused = false;
                         while (deviceCUDA.IsPause)
                         {
                             Task.Delay(500).Wait();
                             deviceCUDA.HashStartTime = DateTime.Now;
                             deviceCUDA.HashCount = 0;
+                            wasJustUnpaused = true;
                         }
+                        if (wasJustUnpaused)
+                        {
+                            Task.Delay(125).Wait();
+                        PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Debug", "CUDA stabilization delay after unpause");
+                     //   Program.Print("CUDA stabilization delay after unpause");
+                       // Console.WriteLine("CUDA stabilization delay after unpause");
 
+                        }
+                        // ✅ SAFETY GUARD: Check if the device is still valid
+                        if (!deviceCUDA.IsInitialized)
+                        {
+                            Program.Print("CUDA DEVICE NOT INIALIZED CONTINUEING");
+                            Console.WriteLine("CUDA DEVICE NOT INIALIZED CONTINUEING");
+                            Task.Delay(1000).Wait(); // Give it time to possibly reinitialize (if designed that way)
+                            continue; // Skip this loop iteration
+
+
+                        }
+                        // ✅ Small delay to let CUDA fully stabilize
+                        Task.Delay(60).Wait();
                         CheckInputs(deviceCUDA, isKingMaking, ref currentChallenge);
 
                         Work.IncrementPosition(ref deviceCUDA.DeviceCUDA_Struct.WorkPosition, deviceCUDA.Threads);
                         deviceCUDA.HashCount += deviceCUDA.Threads;
 
-                        if (isKingMaking)
-                            Helper.CUDA.Solver.HashMessage(UnmanagedInstance, ref deviceCUDA.DeviceCUDA_Struct, errorMessage);
-                        else
-                            Helper.CUDA.Solver.HashMidState(UnmanagedInstance, ref deviceCUDA.DeviceCUDA_Struct, errorMessage);
+                        errorMessage.Clear(); // Start fresh each iteration
+                        try
+                        {
+                            if (isKingMaking)
+                                Helper.CUDA.Solver.HashMessage(UnmanagedInstance, ref deviceCUDA.DeviceCUDA_Struct, errorMessage);
+                            else
+                                Helper.CUDA.Solver.HashMidState(UnmanagedInstance, ref deviceCUDA.DeviceCUDA_Struct, errorMessage);
+                        }
+                        catch (Exception nativeEx)
+                        {
+                            PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Error",
+                                $"Native CUDA call failed: {nativeEx.GetType().Name} - {nativeEx.Message}");
 
+                            PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Debug",
+                                $"StackTrace: {nativeEx.StackTrace}");
+
+                            deviceCUDA.IsMining = false;
+                            return; // Stop mining gracefully
+                        }
                         if (errorMessage.Length > 0)
                         {
                             PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Error", errorMessage.ToString());
@@ -374,34 +441,67 @@ namespace SoliditySHA3Miner.Miner
 
                         if (*solutionCount > 0)
                         {
-                             // Check if enough time has passed since last submission (0.5 seconds)
-                            if ((DateTime.Now - lastSubmitTime2).TotalMilliseconds >= 500){
-                                
-                            
-                                    int solutionsToSubmit = Math.Min((int)*solutionCount, 4);
-                                    var solutionArray = new ulong[solutionsToSubmit];
+                            // Check if enough time has passed since last submission (0.250 seconds)
+                            if ((DateTime.Now - lastSubmitTime2).TotalMilliseconds >= 250)
+                            {
 
+                                int solutionsToSubmit = Math.Min((int)*solutionCount, 6);
+                                var solutionArray = new ulong[solutionsToSubmit];
 
-                                    for (var i = 0; i < *solutionCount; i++){
+                                try
+                                {
+
+                                    for (var i = 0; i < solutionsToSubmit; i++)
+                                    {
                                         solutionArray[i] = solutions[i];
                                     }
 
-                                    
-                                    SubmitSolutions(solutionArray, currentChallenge, device.Type, device.Platform, deviceCUDA.DeviceID, *solutionCount, isKingMaking);
+                                    PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Debug", $"Submitting {solutionsToSubmit} solutions via SubmitSolutions");
+                                    PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Info",
+                                                                $"About to submit solutions. Array length: {solutionArray.Length}, First solution: 0x{solutionArray[0]:X16}");
 
+                                    try
+                                    {
+                                        SubmitSolutions(solutionArray, currentChallenge, device.Type, device.Platform, deviceCUDA.DeviceID, (uint)solutionsToSubmit, isKingMaking);
+                                    }
+                                    catch (Exception submitEx)
+                                    {
+                                        PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Error",
+                                            $"SubmitSolutions failed: {submitEx.GetType().Name}: {submitEx.Message}");
+                                        PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Debug",
+                                            $"StackTrace: {submitEx.StackTrace}");
+                                    }
                                     *solutionCount = 0;
-                                    lastSubmitTime = DateTime.Now;  // Update the last submit time we dont need to run if they ran
-                                    lastSubmitTime2 = DateTime.Now;  // Update the last submit time we dont need to run if they ran
-                                    
+                                    lastSubmitTime = DateTime.Now;
+                                    lastSubmitTime2 = DateTime.Now;
+                                }
+                                catch (Exception submitEx)
+                                {
+                                    PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Error", $"SubmitSolutions exception: {submitEx.Message}");
+                                }
+
+
+
                             }
                         }
                         else if ((DateTime.Now - lastSubmitTime).TotalSeconds >= CheckMinAmountInterval)
                         {
-                            lastSubmitTime = DateTime.Now;  // Update the last submit time
 
-                            var solutionArray = (ulong[])Array.CreateInstance(typeof(ulong), *solutionCount);
 
-                            SubmitSolutions2(solutionArray, currentChallenge, device.Type, device.Platform, deviceCUDA.DeviceID, *solutionCount, isKingMaking);
+                            try
+                            {
+                                lastSubmitTime = DateTime.Now;
+                                var solutionArray = new ulong[0]; // Empty array since *solutionCount is 0
+
+                                PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Debug", "Submitting empty solutions via SubmitSolutions2");
+                                SubmitSolutions2(solutionArray, currentChallenge, device.Type, device.Platform, deviceCUDA.DeviceID, 0, isKingMaking);
+                            }
+                            catch (Exception submitEx)
+                            {
+                                PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Error", $"SubmitSolutions2 exception: {submitEx.Message}");
+                            }
+
+
 
                         }
 
@@ -412,30 +512,54 @@ namespace SoliditySHA3Miner.Miner
 
                 deviceCUDA.HashCount = 0;
 
-                Helper.CUDA.Solver.ReleaseDeviceObjects(UnmanagedInstance, ref deviceCUDA.DeviceCUDA_Struct, errorMessage);
-                if (errorMessage.Length > 0)
-                {
-                    PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Error", errorMessage.ToString());
-                    errorMessage.Clear();
-                }
+                CleanupDevice(deviceCUDA);
 
-                Helper.CUDA.Solver.ResetDevice(UnmanagedInstance, deviceCUDA.DeviceID, errorMessage);
-                if (errorMessage.Length > 0)
-                {
-                    PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Error", errorMessage.ToString());
-                    errorMessage.Clear();
-                }
-
-                deviceCUDA.IsStopped = true;
-                deviceCUDA.IsInitialized = false;
             }
             catch (Exception ex)
             {
-                PrintMessage(device.Type, device.Platform, -1, "Error", ex.Message);
+                 PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Error", $"StartFinding exception: {ex.Message}\nStackTrace: {ex.StackTrace}");
+
             }
             PrintMessage(device.Type, device.Platform, deviceCUDA.DeviceID, "Info", "Mining stopped.");
         }
+        private void CleanupDevice(Device.CUDA deviceCUDA)
+        {
+            if (deviceCUDA == null || !deviceCUDA.IsInitialized)
+                return;
 
+            var errorMessage = new StringBuilder(1024);
+
+            try
+            {
+                Helper.CUDA.Solver.ReleaseDeviceObjects(UnmanagedInstance, ref deviceCUDA.DeviceCUDA_Struct, errorMessage);
+                if (errorMessage.Length > 0)
+                    PrintMessage(deviceCUDA.Type, deviceCUDA.Platform, deviceCUDA.DeviceID, "Error", $"ReleaseDeviceObjects failed: {errorMessage}");
+            }
+            catch (Exception ex)
+            {
+                PrintMessage(deviceCUDA.Type, deviceCUDA.Platform, deviceCUDA.DeviceID, "Error", $"Exception in ReleaseDeviceObjects: {ex.Message}");
+            }
+
+            Task.Delay(1000).Wait(); // Cooldown delay
+
+            errorMessage.Clear();
+            try
+            {
+                Helper.CUDA.Solver.ResetDevice(UnmanagedInstance, deviceCUDA.DeviceID, errorMessage);
+                if (errorMessage.Length > 0)
+                    PrintMessage(deviceCUDA.Type, deviceCUDA.Platform, deviceCUDA.DeviceID, "Error", $"ResetDevice failed: {errorMessage}");
+            }
+            catch (Exception ex)
+            {
+                PrintMessage(deviceCUDA.Type, deviceCUDA.Platform, deviceCUDA.DeviceID, "Error", $"Exception in ResetDevice: {ex.Message}");
+            }
+
+            deviceCUDA.IsInitialized = false;
+            deviceCUDA.IsStopped = true;
+            deviceCUDA.IsAssigned = false;
+
+            PrintMessage(deviceCUDA.Type, deviceCUDA.Platform, deviceCUDA.DeviceID, "Info", "Device cleanup completed.");
+        }
         #endregion
     }
 }

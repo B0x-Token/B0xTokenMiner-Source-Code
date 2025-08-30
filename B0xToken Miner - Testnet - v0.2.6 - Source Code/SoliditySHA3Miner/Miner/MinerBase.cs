@@ -332,19 +332,40 @@ namespace SoliditySHA3Miner.Miner
             }
         }
 
+
+        // 2. MODIFIED NetworkInterface_OnNewChallenge - Clear all queued solutions when new challenge arrives
+
+
+
+        // 2. MODIFIED NetworkInterface_OnNewChallenge - Clear all queued solutions when new challenge arrives
         private void NetworkInterface_OnNewChallenge(NetworkInterface.INetworkInterface sender, byte[] challenge, string address)
         {
             try
             {
                 if (UnmanagedInstance != null && UnmanagedInstance.ToInt64() != 0)
                 {
+                    var newChallengeString = Convert.ToHexString(challenge);
+
+                    // Check if this is actually a new challenge
+                    var currentChallengeString = m_ChallengeBytes != null ? Convert.ToHexString(m_ChallengeBytes) : string.Empty;
+
+                    if (newChallengeString == currentChallengeString)
+                    {
+                        PrintMessage(string.Empty, string.Empty, -1, "Info", "Challenge unchanged, skipping update");
+                        return; // Same challenge, no need to process
+                    }
+
+                    PrintMessage(string.Empty, string.Empty, -1, "Info", $"New challenge detected: {newChallengeString.Substring(0, 16)}...");
+
+                    // CLEAR ALL QUEUED SOLUTIONS FOR OLD CHALLENGES - only when challenge actually changes
+                    ClearAllOldChallengeSubmissions(newChallengeString);
+
                     for (var i = 0; i < challenge.Length; i++)
                         m_ChallengeBytes[i] = challenge[i];
 
                     m_AddressString = address;
-                    // some pools provide invalid checksum address
-                    Utils.Numerics.AddressStringToByte20Array(address, ref m_AddressBytes, isChecksum:false);
-                    
+                    Utils.Numerics.AddressStringToByte20Array(address, ref m_AddressBytes, isChecksum: false);
+
                     m_SolutionTemplateBytes = Work.SolutionTemplate;
                     m_MidStateBytes = Helper.CPU.GetMidState(m_ChallengeBytes, m_AddressBytes, m_SolutionTemplateBytes);
 
@@ -355,7 +376,7 @@ namespace SoliditySHA3Miner.Miner
                         Array.ConstrainedCopy(m_SolutionTemplateBytes, 0, device.Message, UINT256_LENGTH + ADDRESS_LENGTH, UINT256_LENGTH);
 
                         Array.Copy(m_ChallengeBytes, device.Challenge, UINT256_LENGTH);
-                        Array.Copy(m_MidStateBytes, device.MidState, SPONGE_LENGTH);                        
+                        Array.Copy(m_MidStateBytes, device.MidState, SPONGE_LENGTH);
                         device.HasNewChallenge = true;
                     }
 
@@ -366,11 +387,77 @@ namespace SoliditySHA3Miner.Miner
 
                         m_isCurrentChallengeStopSolving = false;
                     }
+
+                    PrintMessage(string.Empty, string.Empty, -1, "Info", $"Challenge updated successfully: {newChallengeString.Substring(0, 16)}...");
                 }
             }
             catch (Exception ex)
             {
                 PrintMessage(string.Empty, string.Empty, -1, "Error", ex.Message);
+            }
+        }
+
+        // 3. NEW FUNCTION - Clear ALL solutions for old challenges (more aggressive than before)
+        private void ClearAllOldChallengeSubmissions(string newChallengeString)
+        {
+            int clearedCount = 0;
+
+            lock (PriorityQueueLock)
+            {
+                // Create a new queue and only keep solutions for the new challenge
+                var newQueue = new PriorityQueue<SubmissionData, int>();
+
+                while (PrioritySubmissionQueue.TryDequeue(out var submission, out var priority))
+                {
+                    var submissionChallengeString = Convert.ToHexString(submission.Challenge);
+
+                    if (submissionChallengeString == newChallengeString)
+                    {
+                        // Keep solutions for the new challenge
+                        newQueue.Enqueue(submission, priority);
+                    }
+                    else
+                    {
+                        // Discard solutions for old challenges
+                        clearedCount++;
+                    }
+                }
+
+                // Replace the old queue with the new one
+                while (newQueue.TryDequeue(out var submission, out var priority))
+                {
+                    PrioritySubmissionQueue.Enqueue(submission, priority);
+                }
+            }
+
+            // Do the same for SubmitSolutions2 queue
+            lock (PriorityQueueLock2)
+            {
+                var newQueue2 = new PriorityQueue<SubmissionData2, int>();
+
+                while (PrioritySubmissionQueue2.TryDequeue(out var submission, out var priority))
+                {
+                    var submissionChallengeString = Convert.ToHexString(submission.Challenge);
+
+                    if (submissionChallengeString == newChallengeString)
+                    {
+                        newQueue2.Enqueue(submission, priority);
+                    }
+                    else
+                    {
+                        clearedCount++;
+                    }
+                }
+
+                while (newQueue2.TryDequeue(out var submission, out var priority))
+                {
+                    PrioritySubmissionQueue2.Enqueue(submission, priority);
+                }
+            }
+
+            if (clearedCount > 0)
+            {
+                PrintMessage(string.Empty, string.Empty, -1, "Info", $"Cleared {clearedCount} solutions for old challenges");
             }
         }
 
@@ -428,27 +515,29 @@ namespace SoliditySHA3Miner.Miner
 
         protected void CheckInputs(Device.DeviceBase device, bool isKingMaking, ref byte[] currentChallenge)
         {
-            if (device.HasNewTarget || device.HasNewChallenge)
+            lock (device) // <- prevent race if another thread mutates device state
             {
-                if (device.HasNewTarget)
+                if (device.HasNewTarget || device.HasNewChallenge)
                 {
-                    if (isKingMaking) PushTarget(device);
-                    else PushHigh64Target(device);
+                    if (device.HasNewTarget)
+                    {
+                        if (isKingMaking) PushTarget(device);
+                        else PushHigh64Target(device);
+                        device.HasNewTarget = false;
+                    }
 
-                    device.HasNewTarget = false;
+                    if (device.HasNewChallenge)
+                    {
+                        if (isKingMaking) PushMessage(device);
+                        else PushMidState(device);
+
+                        Array.Copy(device.Challenge, currentChallenge, UINT256_LENGTH);
+                        device.HasNewChallenge = false;
+                    }
+
+                    device.HashStartTime = DateTime.Now;
+                    device.HashCount = 0;
                 }
-
-                if (device.HasNewChallenge)
-                {
-                    if (isKingMaking) PushMessage(device);
-                    else PushMidState(device);
-
-                    Array.Copy(device.Challenge, currentChallenge, UINT256_LENGTH);
-                    device.HasNewChallenge = false;
-                }
-
-                device.HashStartTime = DateTime.Now;
-                device.HashCount = 0;
             }
         }
 
@@ -511,7 +600,7 @@ namespace SoliditySHA3Miner.Miner
             PriorityProcessor2Started = true;
             
             ThreadPool.QueueUserWorkItem(_ => ProcessSolutions2Queue());
-        //    Console.WriteLine("Priority processor started for SubmitSolutions2");
+            //    Console.WriteLine("Priority processor started for SubmitSolutions2");
         }
 
         private void ProcessSolutions2Queue()
@@ -521,7 +610,7 @@ namespace SoliditySHA3Miner.Miner
                 try
                 {
                     SubmissionData2 nextSubmission = null;
-                    
+
                     lock (PriorityQueueLock2)
                     {
                         if (PrioritySubmissionQueue2.Count > 0)
@@ -529,14 +618,14 @@ namespace SoliditySHA3Miner.Miner
                             PrioritySubmissionQueue2.TryDequeue(out nextSubmission, out var priority);
                         }
                     }
-                    
+
                     if (nextSubmission != null)
                     {
                         if (nextSubmission.Priority == 1)
                         {
-                        //    Console.WriteLine($"Processing HIGH PRIORITY new challenge for SubmitSolutions2 from device {nextSubmission.DeviceID}");
+                            //    Console.WriteLine($"Processing HIGH PRIORITY new challenge for SubmitSolutions2 from device {nextSubmission.DeviceID}");
                         }
-                        
+
                         ProcessSubmission2(nextSubmission);
                     }
                     else
@@ -551,64 +640,51 @@ namespace SoliditySHA3Miner.Miner
                 }
             }
         }
-// FIXED SUBMITSOLUTIONS - Move monitoring AFTER queuing
-protected void SubmitSolutions(ulong[] solutions, byte[] challenge, string platformType, string platform, int deviceID, uint solutionCount, bool isKingMaking)
-{
-       //  Program.Print("SubmitSolutions");
-    // Determine priority based on challenge
-    var challengeString = Convert.ToHexString(challenge);
-    var currentNetworkChallenge = Convert.ToHexString(NetworkInterface.CurrentChallenge);
-    
-    int priority;
-    if (challengeString == currentNetworkChallenge && LastProcessedChallenge != challengeString)
-    {
-        priority = 1; // HIGHEST PRIORITY - New current challenge
-        LastProcessedChallenge = challengeString;
-      //  Console.WriteLine($"NEW CHALLENGE DETECTED - High priority: {challengeString.Substring(0, 16)}...");
-        
-        // Clear old challenge submissions
-        ClearOldChallengeSubmissions(challengeString);
-    }
-    else if (challengeString == currentNetworkChallenge)
-    {
-        priority = 2; // High priority - Current challenge
-    }
-    else
-    {
-        priority = 3; // Low priority - Old challenges
-    }
 
-    // Create submission data
-    var submissionData = new SubmissionData
-    {
-        Solutions = (ulong[])solutions.Clone(),
-        Challenge = (byte[])challenge.Clone(),
-        PlatformType = platformType,
-        Platform = platform,
-        DeviceID = deviceID,
-        SolutionCount = solutionCount,
-        IsKingMaking = isKingMaking,
-        CreatedAt = DateTime.UtcNow,
-        Priority = priority
-    };
 
-    // Queue with priority (NO Task.Run!)
-    lock (PriorityQueueLock)
-    {
-        PrioritySubmissionQueue.Enqueue(submissionData, priority);
-        
-        if (priority == 1)
+
+        // 1. MODIFIED SubmitSolutions - Queue solutions instead of processing immediately
+        protected void SubmitSolutions(ulong[] solutions, byte[] challenge, string platformType, string platform, int deviceID, uint solutionCount, bool isKingMaking)
         {
-           // Console.WriteLine($"New challenge queued with HIGHEST priority - Queue size: {PrioritySubmissionQueue.Count}");
+            var challengeString = Convert.ToHexString(challenge);
+            var currentNetworkChallenge = Convert.ToHexString(NetworkInterface.CurrentChallenge);
+
+            // Only queue solutions for the current challenge
+            if (challengeString != currentNetworkChallenge)
+            {
+                // Discard solutions for old challenges
+                PrintMessage(platformType, platform, deviceID, "Info", $"Discarding {solutions.Length} solutions for old challenge");
+                return;
+            }
+
+            // Queue each solution individually for the current challenge
+            foreach (var solution in solutions)
+            {
+                var submissionData = new SubmissionData
+                {
+                    Solutions = new ulong[] { solution }, // Single solution
+                    Challenge = (byte[])challenge.Clone(),
+                    PlatformType = platformType,
+                    Platform = platform,
+                    DeviceID = deviceID,
+                    SolutionCount = 1, // Always 1 since we're queuing individually
+                    IsKingMaking = isKingMaking,
+                    CreatedAt = DateTime.UtcNow,
+                    Priority = 2 // Normal priority for current challenge solutions
+                };
+
+                lock (PriorityQueueLock)
+                {
+                    PrioritySubmissionQueue.Enqueue(submissionData, 2);
+                }
+            }
+
+            PrintMessage(platformType, platform, deviceID, "Info", $"Queued {solutions.Length} solutions for current challenge");
+            MonitorQueueSizeAndControlMining();
         }
-    }
 
-    // CHECK QUEUE SIZE AFTER QUEUING - THIS IS THE KEY FIX
-    MonitorQueueSizeAndControlMining();
-}
-
-// FIXED SUBMITSOLUTIONS2 - Move monitoring AFTER queuing
-protected void SubmitSolutions2(ulong[] solutions, byte[] challenge, string platformType, string platform, int deviceID, uint solutionCount, bool isKingMaking)
+        // FIXED SUBMITSOLUTIONS2 - Move monitoring AFTER queuing
+        protected void SubmitSolutions2(ulong[] solutions, byte[] challenge, string platformType, string platform, int deviceID, uint solutionCount, bool isKingMaking)
 {
          Program.Print("SubmitSolution2");
     // Determine priority based on challenge
@@ -741,163 +817,158 @@ protected void SubmitSolutions2(ulong[] solutions, byte[] challenge, string plat
 
 
 
-// IMPROVED MonitorQueueSizeAndControlMining with better logging
-private void MonitorQueueSizeAndControlMining()
-{
-        // Console.WriteLine("MonitorQueueSizeAndControlMining");
-    int totalQueueSize;
-    int queue1Size;
-    int queue2Size;  
-   // Console.WriteLine($"MonitorQueueSizeAndControlMining Queue status");
-                
-    lock (PriorityQueueLock)
-    {
-        queue1Size = PrioritySubmissionQueue.Count;
-    }
-    
-    lock (PriorityQueueLock2)  
-    {
-        queue2Size = PrioritySubmissionQueue2.Count;
-    }
-    
-    totalQueueSize = queue1Size + queue2Size;
+        // 4. MODIFIED MonitorQueueSizeAndControlMining - Adjusted thresholds for 2016-solution batches
+        private void MonitorQueueSizeAndControlMining()
+        {
+            int totalQueueSize;
+            int queue1Size;
+            int queue2Size;
 
-    // Always show queue status when there are items
-    if (totalQueueSize > 0)
-    {
-     //   Console.WriteLine($"Queued Answers: {totalQueueSize} (Queue1: {queue1Size}, Queue2: {queue2Size})");
-      //  PrintMessage(string.Empty, string.Empty, -1, "Info", $"Queue status: Total={totalQueueSize}, SubmitSolutions={queue1Size}, SubmitSolutions2={queue2Size}");
-    }
+            lock (PriorityQueueLock)
+            {
+                queue1Size = PrioritySubmissionQueue.Count;
+            }
 
-    // Stop solving if queue size exceeds 20
-    if (totalQueueSize > 20 && !m_isCurrentChallengeStopSolving)
-    {
-      //  Console.WriteLine($"QUEUE OVERFLOW! Total: {totalQueueSize} > 20, STOPPING MINING");
-       // PrintMessage(string.Empty, string.Empty, -1, "Warn", $"Queue size ({totalQueueSize}) exceeded 20, stopping current challenge solving...");
-        NetworkInterface_OnStopSolvingCurrentChallenge(NetworkInterface, true);
-    }
-    // Resume solving if queue size drops below 5
-    else if (totalQueueSize < 5 && m_isCurrentChallengeStopSolving)
-    {
-      //  Console.WriteLine($"Queue size normalized: {totalQueueSize} < 5, RESUMING MINING");
-       // PrintMessage(string.Empty, string.Empty, -1, "Info", $"Queue size ({totalQueueSize}) below 5, resuming mining...");
-        NetworkInterface_OnStopSolvingCurrentChallenge(NetworkInterface, false);
-    }
-}
+            lock (PriorityQueueLock2)
+            {
+                queue2Size = PrioritySubmissionQueue2.Count;
+            }
+
+            totalQueueSize = queue1Size + queue2Size;
+
+            if (queue1Size > 0)
+            {
+                PrintMessage(string.Empty, string.Empty, -1, "Info",
+                    $"Queue status: Total={totalQueueSize}, SubmitSolutions={queue1Size}, SubmitSolutions2={queue2Size}");
+            }
+
+            // Stop solving if queue size exceeds 20 (allowing for more solutions to accumulate)
+            if (totalQueueSize > 20 && !m_isCurrentChallengeStopSolving)
+            {
+                PrintMessage(string.Empty, string.Empty, -1, "Warn",
+                    $"Queue size ({totalQueueSize}) exceeded 20, pausing mining to process backlog...");
+                NetworkInterface_OnStopSolvingCurrentChallenge(NetworkInterface, true);
+            }
+            // Resume solving if queue size drops below 5
+            else if (totalQueueSize < 5 && m_isCurrentChallengeStopSolving)
+            {
+                PrintMessage(string.Empty, string.Empty, -1, "Info",
+                    $"Queue size ({totalQueueSize}) below 5, resuming mining...");
+                NetworkInterface_OnStopSolvingCurrentChallenge(NetworkInterface, false);
+            }
+        }
 
 
-        // Process individual submission using original logic
+
+
+
+
+
+
+        uint solutionNumber = 0;
+
+        // 5. MODIFIED ProcessSubmission - Process solutions one by one with better challenge validation
         private void ProcessSubmission(SubmissionData submissionData)
         {
             try
             {
                 SubmissionSemaphore.Wait();
-                
+
                 try
                 {
+                    // Double-check that this solution is still for the current challenge
+                    var submissionChallengeString = Convert.ToHexString(submissionData.Challenge);
+                    var currentChallengeString = Convert.ToHexString(NetworkInterface.CurrentChallenge);
+
+                    if (submissionChallengeString != currentChallengeString)
+                    {
+                        PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID,
+                            "Info", "Skipping solution for old challenge");
+                        return;
+                    }
+
                     lock (m_submissionQueueLock)
                     {
-                        foreach (var solution in submissionData.Solutions)
+                        // Process the single solution
+                        var solution = submissionData.Solutions[0];
+
+                        if (NetworkInterface.GetType().IsAssignableFrom(typeof(NetworkInterface.SlaveInterface)))
+                            if (((NetworkInterface.SlaveInterface)NetworkInterface).IsPause)
+                                return;
+
+                        PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID,
+                            "Info", "Processing solution...");
+
+                        var solutionBytes = BitConverter.GetBytes(solution);
+                        var nonceBytes = Utils.Numerics.FilterByte32Array(m_SolutionTemplateBytes.ToArray());
+
+                        byte[] messageBytes;
+                        byte[] digestBytes;
+                        GCHandle messageHandle;
+                        GCHandle digestHandle;
+                        IntPtr messagePointer;
+                        IntPtr digestPointer;
+
+                        lock (s_bufferLock)
                         {
-                            if (NetworkInterface.GetType().IsAssignableFrom(typeof(NetworkInterface.SlaveInterface)))
-                                if (((NetworkInterface.SlaveInterface)NetworkInterface).IsPause)
-                                    return;
+                            messageBytes = new byte[s_messageBuffer.Length];
+                            digestBytes = new byte[s_digestBuffer.Length];
 
-                            if (!NetworkInterface.IsPool && NetworkInterface.IsChallengedSubmitted(submissionData.Challenge))
-                                return;
+                            messageHandle = GCHandle.Alloc(messageBytes, GCHandleType.Pinned);
+                            messagePointer = messageHandle.AddrOfPinnedObject();
+                            digestHandle = GCHandle.Alloc(digestBytes, GCHandleType.Pinned);
+                            digestPointer = digestHandle.AddrOfPinnedObject();
+                        }
 
-                            if (!m_isSubmitStale && !submissionData.Challenge.SequenceEqual(NetworkInterface.CurrentChallenge))
-                                return;
-
-                            if (m_isSubmitStale && !submissionData.Challenge.SequenceEqual(NetworkInterface.CurrentChallenge))
-                                PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID, "Warn", "Found stale solution, verifying...");
+                        try
+                        {
+                            if (submissionData.IsKingMaking)
+                                Array.ConstrainedCopy(solutionBytes, 0, nonceBytes, ADDRESS_LENGTH, UINT64_LENGTH);
                             else
-                                PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID, "Info", "Found solution, verifying...");
+                                Array.ConstrainedCopy(solutionBytes, 0, nonceBytes, (UINT256_LENGTH / 2) - (UINT64_LENGTH / 2), UINT64_LENGTH);
 
-                            var solutionBytes = BitConverter.GetBytes(solution);
-                            var nonceBytes = Utils.Numerics.FilterByte32Array(m_SolutionTemplateBytes.ToArray());
+                            Array.ConstrainedCopy(submissionData.Challenge, 0, messageBytes, 0, UINT256_LENGTH);
+                            Array.ConstrainedCopy(m_AddressBytes, 0, messageBytes, UINT256_LENGTH, ADDRESS_LENGTH);
+                            Array.ConstrainedCopy(nonceBytes, 0, messageBytes, UINT256_LENGTH + ADDRESS_LENGTH, UINT256_LENGTH);
 
-                            byte[] messageBytes;
-                            byte[] digestBytes;
-                            GCHandle messageHandle;
-                            GCHandle digestHandle;
-                            IntPtr messagePointer;
-                            IntPtr digestPointer;
+                            Helper.CPU.Solver.SHA3(messagePointer, digestPointer);
 
-                            lock (s_bufferLock)
+                            var nonceString = Utils.Numerics.Byte32ArrayToHexString(nonceBytes);
+                            var challengeString = Utils.Numerics.Byte32ArrayToHexString(submissionData.Challenge);
+                            var digestString = Utils.Numerics.Byte32ArrayToHexString(digestBytes);
+                            var digest = new HexBigInteger(digestString);
+
+                            if (digest.Value >= m_Target.Value)
                             {
-                                messageBytes = new byte[s_messageBuffer.Length];
-                                digestBytes = new byte[s_digestBuffer.Length];
-
-                                messageHandle = GCHandle.Alloc(messageBytes, GCHandleType.Pinned);
-                                messagePointer = messageHandle.AddrOfPinnedObject();
-                                digestHandle = GCHandle.Alloc(digestBytes, GCHandleType.Pinned);
-                                digestPointer = digestHandle.AddrOfPinnedObject();
+                                // Invalid solution - skip silently
+                                PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID,
+                                    "Info", "Solution did not meet target difficulty");
                             }
-
-                            try
+                            else
                             {
-                                if (submissionData.IsKingMaking)
-                                    Array.ConstrainedCopy(solutionBytes, 0, nonceBytes, ADDRESS_LENGTH, UINT64_LENGTH);
-                                else
-                                    Array.ConstrainedCopy(solutionBytes, 0, nonceBytes, (UINT256_LENGTH / 2) - (UINT64_LENGTH / 2), UINT64_LENGTH);
+                                PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID,
+                                    "Info", "Valid solution found! Submitting...");
 
-                                Array.ConstrainedCopy(submissionData.Challenge, 0, messageBytes, 0, UINT256_LENGTH);
-                                Array.ConstrainedCopy(m_AddressBytes, 0, messageBytes, UINT256_LENGTH, ADDRESS_LENGTH);
-                                Array.ConstrainedCopy(nonceBytes, 0, messageBytes, UINT256_LENGTH + ADDRESS_LENGTH, UINT256_LENGTH);
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                Console.WriteLine($"VALID SOLUTION from device {submissionData.DeviceID}!");
+                                Console.ResetColor();
 
-                                Helper.CPU.Solver.SHA3(messagePointer, digestPointer);
-
-                                var nonceString = Utils.Numerics.Byte32ArrayToHexString(nonceBytes);
-                                var challengeString = Utils.Numerics.Byte32ArrayToHexString(submissionData.Challenge);
-                                var digestString = Utils.Numerics.Byte32ArrayToHexString(digestBytes);
-                                var digest = new HexBigInteger(digestString);
-
-                                if (digest.Value >= m_Target.Value)
+                                try
                                 {
-                                    // Invalid solution - skip silently
+                                    NetworkInterface.SubmitSolution(m_AddressString, digest, submissionData.Challenge,
+                                        NetworkInterface.Difficulty, nonceBytes, this);
                                 }
-                                else
+                                catch (Exception netEx)
                                 {
-                                    // Pause all devices before submission
-                                    foreach (var dev in Devices)
-                                        dev.IsPause = true;
-
-                                    Console.ForegroundColor = ConsoleColor.White;
-                                    Console.BackgroundColor = ConsoleColor.DarkBlue;
-                                    if (submissionData.Priority == 1)
-                                        Console.WriteLine($"NEW CHALLENGE Solution verified from device {submissionData.DeviceID}!");
-                                    else
-                                        Console.WriteLine("Solution verified Solution details..");
-                                    Console.ResetColor();
-
-                                    PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID, "Info",
-                                            "Solution Verified Info: MinerAddress: " + m_AddressString
-                                            + "\nNonce: " + nonceString
-                                            + "\nChallenge: " + challengeString);
-
-                                    try
-                                    {
-                                        NetworkInterface.SubmitSolution(m_AddressString,
-                                                                        digest,
-                                                                        submissionData.Challenge,
-                                                                        NetworkInterface.Difficulty,
-                                                                        nonceBytes,
-                                                                        this);
-                                    }
-                                    finally
-                                    {
-                                        // Resume all devices after submission
-                                        foreach (var dev in Devices)
-                                            dev.IsPause = false;
-                                    }
+                                    PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID,
+                                        "Error", $"Network submission failed: {netEx.Message}");
                                 }
                             }
-                            finally
-                            {
-                                messageHandle.Free();
-                                digestHandle.Free();
-                            }
+                        }
+                        finally
+                        {
+                            messageHandle.Free();
+                            digestHandle.Free();
                         }
                     }
                 }
@@ -905,12 +976,11 @@ private void MonitorQueueSizeAndControlMining()
                 {
                     SubmissionSemaphore.Release();
                 }
-
-            MonitorQueueSizeAndControlMining();
+                MonitorQueueSizeAndControlMining();
             }
             catch (Exception ex)
             {
-                PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID, 
+                PrintMessage(submissionData.PlatformType, submissionData.Platform, submissionData.DeviceID,
                     "Error", $"Solution processing failed: {ex.Message}");
             }
         }
@@ -942,6 +1012,8 @@ private void MonitorQueueSizeAndControlMining()
                                                     NetworkInterface.Difficulty,
                                                     byteArray,
                                                     this);
+
+
                 }
                 finally
                 {
@@ -956,5 +1028,6 @@ private void MonitorQueueSizeAndControlMining()
                     $"SubmitSolutions2 processing failed: {ex.Message}");
             }
         }
+
     }
 }

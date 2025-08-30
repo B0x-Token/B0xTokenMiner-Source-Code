@@ -389,73 +389,11 @@ private static readonly TimeSpan SixHours = TimeSpan.FromHours(6);
         public override bool SubmitSolution(string address, byte[] digest, byte[] challenge, HexBigInteger difficulty, byte[] nonce, object sender)
         {
             lock (this)
-            {  //this goes down to line 1356
+            {  //this goes 1000+ lines
                     //Turn off solver
-                    OnStopSolvingCurrentChallenge(this);
+                  //  OnStopSolvingCurrentChallenge(this);
 BigInteger getTotalETHowedtoSendtoContract = 0;
                
-/*
-if (m_getCosts ==null){
-    Program.Print("NULL NULL NULL@!!!@!!@");
-} else {
-    Program.Print("m_getCosts is NOT null - proceeding with call");
-    
-    try {
-        
-        Program.Print("About to call CallAsync...");
-
-
-
-    // Your function returns (uint EKYouGet, uint ETHYouGet, uint ETHyouSpend)
-    // So call it expecting 3 BigIntegers
-        var compensationValue = 10;
-
-
-
-// Start all calls at once (non-blocking)
-var task0 = m_getCosts.CallAsync<BigInteger>(compensationValue, 0);
-var task1 = m_getCosts.CallAsync<BigInteger>(compensationValue, 1);
-var task2 = m_getCosts.CallAsync<BigInteger>(compensationValue, 2);
-        Program.Print("waiting for tasks to complete");
-
-// Wait for all to complete
-Task.WaitAll(task0, task1, task2);
-        Program.Print("tasked waited for and done and results sorted");
-
-// Get results
-BigInteger resultEKyouGet = task0.Result;
-BigInteger result1ETHyouGet = task1.Result;
-BigInteger result2ETHyouSpend = task2.Result;
-
-
-
-// Calculate totals (multiply by compensation)
-BigInteger getTotalEK = resultEKyouGet * compensationValue;
-BigInteger getTotalETH = result1ETHyouGet * compensationValue;
-BigInteger getTotalETHowed = result2ETHyouSpend * compensationValue;
-
-Program.Print("=== Mining Cost Analysis ===");
-Program.Print($"For each mint of the {compensationValue} mints:");
-Program.Print($"EK You Get per mint: {Web3.Convert.FromWei(resultEKyouGet)} EK");
-Program.Print($"ETH You Get per mint: {Web3.Convert.FromWei(result1ETHyouGet)} ETH");
-Program.Print($"ETH You Spend per mint: {Web3.Convert.FromWei(result2ETHyouSpend)} ETH");
-
-Program.Print($"\nTotal for {compensationValue} mints:");
-Program.Print($"Total EK You Get: {Web3.Convert.FromWei(getTotalEK)} EK");
-Program.Print($"Total ETH You Get: {Web3.Convert.FromWei(getTotalETH)} ETH");
-Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH");
-        
-    }
-    catch(Exception e) {
-        Program.Print($"Exception type: {e.GetType().Name}");
-        Program.Print($"Exception message: {e.Message}");
-        Program.Print($"Inner exception: {e.InnerException?.Message}");
-    }
-}
-
-*/
-
-
 
                 try
                 {
@@ -553,15 +491,15 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                     Program.Print("Should we turn in Answers because we are close to Emergency Difficulty Adjustment: " + ShouldweTurnInAnswersNow);
                     //if (challenge.SequenceEqual(CurrentChallenge))
 
-                    var miningParameters5555 = GetMiningParameters5();
-                    var epochNumber5555 = miningParameters5555.Epoch.Value;
+                    //var miningParameters5555 = GetMiningParameters5();
+                    var epochNumber5555 = result3.BlocksToReadjustz;
 
                    // MiningDifficultyfff = new HexBigInteger(m_getSecondsUntilAdjustment.CallAsync<BigInteger>().Result);
 
 
 
-                //    var blocksFromReadjustmentz = new HexBigInteger(m_blocksFromReadjust.CallAsync<BigInteger>().Result).Value;
-                 //   var blocksToReadjustmentz = epochNumber5555;
+                    //    var blocksFromReadjustmentz = new HexBigInteger(m_blocksFromReadjust.CallAsync<BigInteger>().Result).Value;
+                    //   var blocksToReadjustmentz = epochNumber5555;
                     Program.Print("Blocks From readjustment: " + blocksFromReadjustmentz.ToString());
                     Program.Print("Blocks to readjustment: " +epochNumber5555.ToString());
                     Program.Print("Mining seconds until probably time to turn in answers: " + secondsFromTimetoTurnInAnswers.ToString());
@@ -594,13 +532,8 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                     Program.Print($"Current counter Starts at:  {currentCounter}");
                     Program.Print($"Current currentCounterLocationStart Starts at:  {currentCounterLocationStart}");
                     Program.Print($"Current currentCounterLocationEnd Starts at:  {currentCounterLocationEnd}");
-                    // Display the current counter
-                    //Console.WriteLine($"Current Accumulated Mints: {currentCounter}");
+                    // Display the current 
                     Program.Print($"EPOCH UNTIL READJUSTMENT: {epochNumber5555}");
-                    //  Program.Print($"CURRENT MININNG DIFFICULTY: {epochNumber55552}");
-
-                    //  Console.WriteLine($"EPOCH Count: {epochNumber5555}");
-                    //  Console.WriteLine(SECOND function copying"retry count" + retryCount);
                     var isCloseToReadjustment = false;
 
                     m_ResetIfEpochGoesUp = (int)epochNumber5555;
@@ -778,18 +711,10 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                         Array.Copy(digest, digestCopy5, digest.Length);
                         byte[] nonceCopy5 = new byte[nonce.Length];
                         Array.Copy(nonce, nonceCopy5, nonce.Length);
-                        //  digestArray2 = new byte[][] { digest }.Concat(digestArray2).ToArray();
-                        // challengeArray2 = new byte[][] { challengeCopy5 }.Concat(challengeArray2).ToArray();
-                        //nonceArray2 = new byte[][] { nonce }.Concat(nonceArray2).ToArray();
 
 
                         string digestREAL = "0x" + BitConverter.ToString(digest).Replace("-", "");
                         string digHex = "0x" + BitConverter.ToString(digestCopy5).Replace("-", "");
-                       // Program.Print("writing digHex digHex: " + digHex);
-                       // Program.Print("writing digestREAL digestREAL: " + digestREAL);
-                      //  Program.Print("writing digestREAL digestREAL: " + digestREAL);
-                      //  Program.Print("writing digHex digHex: " + digHex);
-                      //  Program.Print("writing digHex digHex: " + digHex);
 
                         digestArray2 = digestArray2.Concat(new byte[][] { digestCopy5 }).ToArray();
                         challengeArray2 = challengeArray2.Concat(new byte[][] { challengeCopy5 }).ToArray();
@@ -804,14 +729,6 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                         currentCounter = currentCounter + 1;
                     }
 
-                        // Find the minimum length among all arrays
-                       // int minLength = Math.Min(digestArray2.Length, Math.Min(challengeArray2.Length, nonceArray2.Length));
-                   // Console.WriteLine("Test Digest Length: " + digestArray2.Length);
-                  //  Console.WriteLine("Test challengeArray2 Length: " + challengeArray2.Length);
-                 //   Console.WriteLine("Test nonceArray2 Length: " + nonceArray2.Length);
-                    // Ensure loopLimit does not exceed the minimum length
-      
-                    
 
                    // Console.WriteLine($"LENTGTHS {(nonceArray2.Length)}");
                     byte[] originalDigestBytes = null;
@@ -871,15 +788,6 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                     }
 
 
-                    /*       old working
-                                dataInput1 = new object[] { apiGasPrice2, ID, new BigInteger(originalNonceBytes, isBigEndian: true), originalDigestBytes };
-                                dataInput2 = new object[] { new BigInteger(originalNonceBytes, isBigEndian: true), originalDigestBytes, ethereumAddresses, address };
-                                dataInput3 = new object[] { new BigInteger(originalNonceBytes, isBigEndian: true), originalDigestBytes, address };
-                                dataInput4 = new object[] { new BigInteger(originalNonceBytes, isBigEndian: true), originalDigestBytes };
-
-            */
-
-                   // Console.WriteLine("LOG77777777");
                     File.WriteAllText(filePath4, currentCounter.ToString());
                     // Write the updated counter back to the file
                     // Display the updated counter
@@ -912,23 +820,6 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                    // if((currentCounter-currentCounterLocationStart) > m_maxAnswersPerSubmit)
                     var thiszzzzz = 0;
                     m_ResetIfEpochGoesUpBOOL = true;
-
-                    /*
-                    if (currentCounter < 00)
-                    {
-                        OnNewChallenge(this, challenge, MinerAddress);
-                        return false;
-                    }
-                    */
-
-
-// ADD THESE DEBUG LINES:
-//onsole.WriteLine($"nonceArray2.Length: {nonceArray2.Length}");
-//Console.WriteLine($"challengeArray2.Length: {challengeArray2.Length}");
-//Console.WriteLine($"digestArray2.Length: {digestArray2.Length}");
-//Console.WriteLine($"Trying to Skip({skipThisMany}) Take({currentCounter - currentCounterLocationStart})");
-//Console.WriteLine($"Trying to Skip({skipThisMany}) Take({currentCounter - currentCounterLocationStart})");
-
 
 
 
@@ -971,54 +862,8 @@ Program.Print($"Total ETH You Spend: {Web3.Convert.FromWei(getTotalETHowed)} ETH
                     // Take the first 5 elements from challengeArray2
                     // dataInputMega = new object[] { lastNonceArray2x[0], address };
                     HashSet<int> indicesToRemove = new HashSet<int>();
-                    /*
-                    for (int i = 0; i < lastDigestArray2x.Count; i++)
-                    {
-                        byte[] digest12 = lastDigestArray2x[i];
-                        byte[] challenge12 = lastChallengeArray2x[i];
-                        BigInteger nonce12 = lastNonceArray2x[i];
-                        BigInteger nonce1222 = new BigInteger(nonceArray2[i]);
-                        byte[] nonce122222 =nonceArray2[i];
-                        // Convert byte arrays to hexadecimal strings
-                        string digestHex = "0x" + BitConverter.ToString(digest12).Replace("-", "");
-                        string challengeHex = "0x" + BitConverter.ToString(challenge12).Replace("-", "");
-                        string nonceHex = "0x" + nonce12.ToString();
-                        string nonceHex2 = "0x" + nonce1222.ToString();
-                        string nonceHex222 = "0x" + BitConverter.ToString(nonce122222).Replace("-", "");
-                        string nonceHex2222 = "0x" + BitConverter.ToString(nonce122222).Replace("-", "");
-                        string chal1 = "0x" + BitConverter.ToString(challengeArrayFirstOld).Replace("-", "");
-                        string chal2 = "0x" + BitConverter.ToString(challengeArraySecondOld).Replace("-", "");
-                        BigInteger number;
+                   
 
-                        // Check if the string starts with 0x or 0X. If it does, remove this part.
-                        if (nonceHex222.StartsWith("0x", StringComparison.OrdinalIgnoreCase))
-                        {
-                            nonceHex222 = nonceHex222.Substring(2);
-                        }
-
-                        // Parse the hexadecimal string
-                        number = BigInteger.Parse(nonceHex222, NumberStyles.AllowHexSpecifier);
-
-                        Console.WriteLine($"BigInteger value: {number}");
-                        // Output the elements of the lists
-                        Console.WriteLine($"{i} Digest: {digestHex}");
-                        Console.WriteLine($"{i} Challenge: {challengeHex}");
-                        Console.WriteLine($"{i} Nonce: {nonceHex}");
-                        Console.WriteLine($"{i} Nonce v2 : {nonceHex2}");
-                        Console.WriteLine($"{i} Nonce v3 : {nonceHex2222}");
-                        Console.WriteLine($"{i} Nonce v4 : {number.ToString()}");
-                        Console.WriteLine($"vs 1st Challenge: {chal1}");
-                        Console.WriteLine($"vs 2nd Challenge: {chal2}");
-
-                        BigInteger bb = difficulty.Value;
-
-                        BigInteger testd = BigInteger.Pow(2, 234);
-                        BigInteger ff = testd / epochNumber55552;
-                        Console.WriteLine($"vs 1st Difficulty: {ff.ToString()}");
-                        Console.WriteLine($"vs 2nd Difficulty: {bb.ToString()}");
-                        Console.WriteLine(); // Adding a blank line for better readability
-                    }
-                   */
                     int totalMultiple = 0;
                     if (true)
                     {
@@ -1109,17 +954,6 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                             if (comparisonResult >= 0)
                             {   
 
-                           //     string filePathz22 = "aErrorFound1.txt";
-                               // Program.Print("larger");
-                              //  File.WriteAllText(filePathz, (currentCounter-1).ToString());
-                               // Environment.Exit(109); // Exit program with error code 109
-
-                                //    Program.Print($"Current digestAsBigInteger: {digestAsBigInteger}");
-                                //    Program.Print($"Current digest that is giving issue: {lastDigestArray2x[indexid]}");
-                                //    Program.Print($"Current difficultyAsBigIntegerLargeNumber: {difficultyAsBigIntegerLargeNumber}");
-                                //    string msgssss = $"Number: {indexid}" + "\n" + $"Current difficultyAsBigIntegerLargeNumber: {difficultyAsBigIntegerLargeNumber}" + "\n" + $"Current digestAsBigInteger: {digestAsBigInteger}";
-                                //    File.WriteAllText(filePathz22, msgssss);
-
                                 indicesToRemove.Add(indexid);
                             }
                             else
@@ -1135,12 +969,6 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                                 {
                                     xas++;
                                 }
-
-                              // Console.WriteLine($"SMALLER");
-                              //  Console.WriteLine($"Current difficultyAsBigIntegerLargeNumber: {difficultyAsBigIntegerLargeNumber}");
-
-                              //  Console.WriteLine($"Current digestAsBigInteger: {digestAsBigInteger}");
-                              //  Console.WriteLine($"Current difficultyAsBigIntegerLargeNumber: {difficultyAsBigIntegerLargeNumber}");
 
                             }
                             indexid = indexid + 1;
@@ -1165,20 +993,33 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
 
 
 
-                    if(totalMultiple > m_maxAnswersPerSubmit){
-
-                  //  Program.Print(string.Format("YOU WILL MINT a max of m_maxAnswersPerSubmit: " +m_maxAnswersPerSubmit+" mints instead of the total: "+ totalMultiple));
-                 //   Program.Print(string.Format("YOU WILL MINT a max of m_maxAnswersPerSubmit: " +m_maxAnswersPerSubmit+" mints instead of the total: "+ totalMultiple));
-                    Program.Print(string.Format("YOU WILL MINT a max of m_maxAnswersPerSubmit: " +m_maxAnswersPerSubmit+" mints instead of the total: "+ totalMultiple));
+                    if(totalMultiple > m_maxAnswersPerSubmit){ Program.Print(string.Format("YOU WILL MINT a max of m_maxAnswersPerSubmit: " +m_maxAnswersPerSubmit+" mints instead of the total: "+ totalMultiple));
 
                     }else{
-                  //  Program.Print(string.Format("YOU WILL MINT THIS MANY IF YOU MINT NOW: "+ totalMultiple+ "x"));
-                 //   Program.Print(string.Format("YOU WILL MINT THIS MANY IF YOU MINT NOW: " + totalMultiple + "x"));
-                    Program.Print(string.Format("YOU WILL MINT THIS MANY IF YOU MINT NOW: " + totalMultiple + "x"));
+                        Program.Print(string.Format("YOU WILL MINT THIS MANY IF YOU MINT NOW: " + totalMultiple + "x"));
 
 
                     }
 
+
+
+                    var miningParameters2 = GetMiningParameters2();
+
+                    var newChallengez2 = miningParameters2.ChallengeByte32String;
+
+                    var submittedChallengeByte32String = Utils.Numerics.Byte32ArrayToHexString(challenge);
+                 
+                    if (newChallengez2 != submittedChallengeByte32String)
+                    {
+                        Program.Print(string.Format("[INFO] Submission cancelled, someone has solved this challenge. Try lowering MinBWORKperMint variable to submit before them."));
+                        Task.Delay(500).Wait();
+                        // UpdateMinerTimer_Elapsed(this, null);
+                        CheckAndUpdateMiningParameters();
+
+                        OnNewChallenge(this, miningParameters2.ChallengeByte32, MinerAddress);
+                        return false;
+
+                    }
 
 
                     if (new BigInteger(totalMultiple + m_HowManyBlocksAWAYFromAdjustmentToSendMinimumZKBTC) <= (epochNumber5555))
@@ -1196,7 +1037,10 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                         Program.Print(string.Format("STILL SOLVING, Solves til transaction sending: " + thiszzzzz));
 
                         Program.Print(string.Format("Waiting for next solution"));
-                      //  OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
+                        CheckAndUpdateMiningParameters();
+
+                        
+                        //  OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
                         return false;
                     }
                     if (totalMultiple < m_maxAnswersPerSubmit && totalMultiple < m_MinSolvesperMint && epochNumber5555 >= totalMultiple + 1)
@@ -1205,7 +1049,9 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                         Program.Print(string.Format("STILL SOLVING, Solves til transaction sending: " + thiszzzzz));
 
                         Program.Print(string.Format("Waiting for next solution"));
-                       // OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
+                        CheckAndUpdateMiningParameters();
+
+                        // OnNewChallenge(this, miningParameters2f.ChallengeByte32, MinerAddress);
                         return false;
                     }
 
@@ -1257,14 +1103,12 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
 
                     if (totalMultiple < m_maxAnswersPerSubmit && totalMultiple < miniz222 && totalMultiple < m_MinSolvesperMint && epochNumber5555 >= currentCounter + 1)
                     {
-                        Program.Print(string.Format("STILL SOLVING Total Good Solves count: " + filteredLastNonceArray2x.Count));
-                        Program.Print(string.Format("STILL SOLVING Solves til mint: " + (miniz222 - filteredLastNonceArray2x.Count)));
+                            Program.Print(string.Format("STILL SOLVING Total Good Solves count: " + filteredLastNonceArray2x.Count));
+                            Program.Print(string.Format("STILL SOLVING Solves til mint: " + (miniz222 - filteredLastNonceArray2x.Count)));
 
-                        Program.Print(string.Format("Waiting for next solution"));
+                            Program.Print(string.Format("Waiting for next solution"));
 
-                        var miningParameters2ff = GetMiningParameters2();
-                        //OnNewChallenge(this, miningParameters2ff.ChallengeByte32, MinerAddress);
-                        return false;
+                            return false;
                     }
 
                     if (ShouldweTurnInAnswersNow)
@@ -1578,12 +1422,7 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                     //MAXNUMBEROFMINTSPOSSIBLE is set in the top of the file at 2500 because thats max number it will accept
                     var miniz = Math.Min(Math.Min(currentCounter, (int)epochNumber5555),lastNonceArray2x.Count);
                     Program.Print("A TOTAL OF " + miniz + " mints are allowed during this mint");
-                   // Program.Print("A currentCounter " + currentCounter + "currentCounter");
-                //    Program.Print("A MAXNUMBEROFMINTSPOSSIBLE" + MAXNUMBEROFMINTSPOSSIBLE + " MAXNUMBEROFMINTSPOSSIBLE");
-                 //   Program.Print("A lastNonceArray2x.Count " + lastNonceArray2x.Count + "lastNonceArray2x.Count");
-                //    Program.Print("A filteredLastNonceArray2x.Count " + filteredLastNonceArray2x.Count + "filteredLastNonceArray2x.Count");
 
-                    // Program.Print(string.Format("[ethereumAddresses2 #] ethereumAddresses2" + ethereumAddresses2[0].ToString()));
                     lastDigestArray2xz = lastDigestArray2xz.Take(miniz).ToList();
                     lastChallengeArray2xz = lastChallengeArray2xz.Take(miniz).ToList();
                     filteredLastNonceArray2x = filteredLastNonceArray2x.Take(miniz).ToList();
@@ -1593,30 +1432,12 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                     var miningParameters3 = GetMiningParameters2();
 
                     Program.Print(string.Format("Sending transaction now"));
-                    /*
-                    var miningParameters3 = GetMiningParameters2();
-                    var realMiningParameters3 = GetMiningParameters3();
-                    var realNFT = realMiningParameters3.MiningDifficulty2.Value;
-                    var realNFT2 = realMiningParameters3.MiningDifficulty.Value;
-                    //Program.Print(string.Format("[NFT INFO] This many epochs until next active {0}", realNFT));
-                    if (realNFT == 0)
-                    {
-                        Program.Print(string.Format("[NFT INFO] Able to print NFT on this Mint, checking Config for NFT mint information."));
-                    }
-                    else
-                    {
-                        Program.Print(string.Format("[NFT INFO] This many slow blocks (12 minutes+) until NFT becomes active again {0}", realNFT2));
-                    }
-                    */
+               
                     var OriginalChal = miningParameters3.Challenge.Value;
                     // Program.Print(string.Format("[INFO] Original Challenge is  {0}", OriginalChal));
                     m_challengeReceiveDateTime = DateTime.MinValue;
-                    //  string NFTAddress = "0xf4910C763eD4e47A585E2D34baA9A4b611aE448C";
 
 
-                    //var ID = BigInteger.Parse("56216745237312134201455589987124376728527950941647757949000127952131123576882");
-
-                    var submittedChallengeByte32String = Utils.Numerics.Byte32ArrayToHexString(challenge);
                     var transactionID = string.Empty;
                     var gasLimit = new HexBigInteger(m_gasLimit);
                     var userGasPriority = new HexBigInteger(UnitConversion.Convert.ToWei(new BigDecimal(m_gasPricePriority), UnitConversion.EthUnit.Gwei));
@@ -1625,67 +1446,9 @@ var resultsComp = new List<(BigInteger abe23f, int compensation)>();
                     var ID = BigInteger.Parse("-1");
                     var apiGasPrice3 = "-1";
                     var apiGasPrice2 = "-1";
-                    /*
-                    try
-                    {
-                        apiGasPrice2 = Utils.Json.DeserializeFromURL(m_gasApiURL2).SelectToken(m_gasApiPath2).Value<string>();
-
-                        apiGasPrice3 = Utils.Json.DeserializeFromURL(m_gasApiURL2).SelectToken(m_gasApiPath3).Value<string>();
-
-                        Program.Print(string.Format("[NFT INFO ID] ID {0}", ID));
-
-                    }
-                    catch
-                    {
-                        Program.Print(string.Format("[NFT Not Minting on URL Feed, Check manually] NFT ADDY: {0}", m_gasApiPath2));
-                        Program.Print(string.Format("[NFT Not Minting on URL Feed, Check manually] NFT ID: {0}", m_gasApiPath3));
 
 
-                    }
-                    try
-                    {
-                        ID = BigInteger.Parse(apiGasPrice3);
-                    }
-                    catch
-                    {
 
-                    }
-                    */
-                    //Program.Print(string.Format("[ethereumAddresses2 #] Token Addy " + ethereumAddresses2[0].ToString()));
-                    /*
-                    Program.Print(string.Format("[INFO] This many ERC20 tokens will attempt to be minted: {0}", ethereumAddresses2.Length));
-                    string[] ethereumAddresses = ethereumAddresses2;
-                    try
-                    {
-                        for (var x = 0; x < ethereumAddresses.Length; x++)
-                        {
-                            Program.Print("[ERC20 Token Address List] Position = " + x + " = " + ethereumAddresses[x]);
-                        }
-                        //Program.Print(string.Format("[ethereumAddresses #] Token Addy New Variable " + ethereumAddresses2[0].ToString()));
-                    }
-                    catch
-                    {
-
-                    }
-                    //Program.Print(string.Format("[ethereumAddresses #] Token Addy New Variable " + ethereumAddresses2[0].ToString()));
-                    */
-                    /*
-                    string[] ethereumAddresses = new string[]
-            {
-                "0x1E01de32b645E681690B65EAC23987C6468ff279",  //TAKE OUT // to fix the array
-                //"0xAddress2",
-               // "0xAddress3"
-                // Add more addresses as needed
-            };
-                    */
-                    /*
-                    if (apiGasPrice2 != "-1")
-                    {
-                        Program.Print(string.Format("[INFO] NFT Address  {0}", apiGasPrice2));
-                        Program.Print(string.Format("[INFO] NFT ID  {0}", apiGasPrice3));
-
-                    }
-                    */
                     do
                     {
 
@@ -1930,17 +1693,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
 
                                 try
                                     {
-                                        //subbing m_mintMethodwithETH_ERC20Extra for m_mintMethod for now to test
-                                        /*
-                                        estimatedGasLimit = m_mintMethodwithETH.EstimateGasAsync(from: address,
-                                                                                        gas: gasLimit,
-                                                                                        value: new HexBigInteger(0),
-                                                                                        functionInput: dataInputMega).Result;
-                                        */
-                                    //  Program.Print(string.Format("[1INFO] Gas to mint Challenge is  {0}", estimatedGasLimit));
-                                    //  Program.Print(string.Format("[1INFO] Gas to mint Challenge is  {0}", estimatedGasLimit));
-                                    //  Program.Print(string.Format("[1INFO] Gas to mint Challenge is  {0}", estimatedGasLimit));
-
+                                  
                                         estimatedGasLimit = m_mintNFTMethod.EstimateGasAsync(from: address,
                                                                                         gas: gasLimit,
                                                                                         value: new HexBigInteger(getTotalETHowedtoSendtoContract+1), // 1e17 as string
@@ -1970,17 +1723,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
 
                                     try
                                     {
-                                        //subbing m_mintMethodwithETH_ERC20Extra for m_mintMethod for now to test
-                                        /*
-                                        estimatedGasLimit = m_mintMethodwithETH.EstimateGasAsync(from: address,
-                                                                                        gas: gasLimit,
-                                                                                        value: new HexBigInteger(0),
-                                                                                        functionInput: dataInputMega).Result;
-                                        */
-                                    //  Program.Print(string.Format("[1INFO] Gas to mint Challenge is  {0}", estimatedGasLimit));
-                                    //  Program.Print(string.Format("[1INFO] Gas to mint Challenge is  {0}", estimatedGasLimit));
-                                    //  Program.Print(string.Format("[1INFO] Gas to mint Challenge is  {0}", estimatedGasLimit));
-
+                                    
                                         estimatedGasLimit = m_mintMethod.EstimateGasAsync(from: address,
                                                                                         gas: gasLimit,
                                                                                         value: new HexBigInteger(getTotalETHowedtoSendtoContract+1), // 1e17 as string
@@ -2032,14 +1775,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                         Task.Delay(4500).Wait();
                                             return false;
                                         }
-                                var miningParameter22s = GetMiningParameters();
-                                var CurrentChallenge22 = miningParameter22s.ChallengeByte32;
-                                OnNewChallenge(this, CurrentChallenge22, MinerAddress);
-                                Program.Print("SLEEP DONE after submit Time for another block");
-
-                                OnGetMiningParameterStatus(this, true);
-                                       
-
+                         
                                 string originalChallengeStringzfz = BitConverter.ToString(challenge).Replace("-", "");
                                 string directoryPathzfzfdzfz = Path.Combine("solveData-", originalChallengeStringzfz);
                                 
@@ -2087,137 +1823,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
 
                             string encodedTx2;
 
-                            /*
-                            if (realNFT == 0 && ID != -1)
-                            {
-
-                                transaction = m_NFTmintMethod.CreateTransactionInput(from: address,
-                                                                                  gas: gasLimit,
-                                                                                  gasPrice: userGas,
-                                                                                  value: new HexBigInteger(0),
-                                                                                  functionInput: dataInput1);
-                                encodedTx = Web3.OfflineTransactionSigner.SignTransaction(privateKey: m_account.PrivateKey,
-                                                                                              to: m_contract.Address,
-                                                                                              amount: 0,
-                                                                                              nonce: txCount.Value,
-                                                                                              chainId: new HexBigInteger(280),
-                                                                                              gasPrice: userGas,
-                                                                                              gasLimit: estimatedGasLimit,
-                                                                                              data: transaction.Data);
-
-                            }
-                            else if (epochNumber % 2 != 0)
-                            {
-                                transaction = m_mintMethod.CreateTransactionInput(from: address,
-                                                                                    gas: gasLimit,
-                                                                                    gasPrice: userGas,
-                                                                                    value: new HexBigInteger(0),
-                                                                                    functionInput: dataInputMega);
-                                var xy = 0;
-                                try
-                                {
-                                    var TotalERC20Addresses = ethereumAddresses.Length;
-                                    // Program.Print(string.Format("[@@We are minting this Extra ERC20 Token] ERC20 = {0}", ethereumAddresses[0].ToString()));
-                                    for (xy = 0; xy < 100; xy++)
-                                    {
-                                        var EpochActual = (double)(epochNumber) + 1;
-                                        var numz = Math.Pow(2, (xy + 1));
-                                        // Program.Print(string.Format("EPOCH = {0}", EpochActual));
-                                        //  Program.Print(string.Format("% = {0}",numz));
-                                        //  Program.Print(string.Format("="));
-                                        var Mods = EpochActual % numz;
-                                        //  Program.Print(string.Format("= {0}", Mods));
-
-
-                                        if (EpochActual % numz != 0)
-                                        {
-                                            break;
-                                        }
-                                    }
-                                    Program.Print(string.Format("[ERC20] You have a total of {0} ERC20 Tokens in your Mint List", TotalERC20Addresses));
-                                    Program.Print(string.Format("[ERC20] You can mint {0} ERC20 Tokens on this Mint", xy));
-
-                                    if (xy > TotalERC20Addresses)
-                                    {
-                                        xy = TotalERC20Addresses;
-                                    }
-                                    Program.Print(string.Format("[ERC20] We will mint this many tokens total this mint: {0}", xy));
-                                    Program.Print("[Minting ERC20 Token Address List] Position = " + "0" + " = " + ethereumAddresses[0]);
-
-                                    string[] newERC20Addresses = ethereumAddresses.Take(xy).ToArray();
-                                    for (var f = 1; f < newERC20Addresses.Length; f++)
-                                    {
-                                        Program.Print("[Minting ERC20 Token Address List] Position = " + f + " = " + newERC20Addresses[f]);
-                                    }
-
-                                    dataInput2 = new object[] { new BigInteger(nonce, isBigEndian: true), digest, newERC20Addresses, address };
-                                    transaction = m_mintMethod.CreateTransactionInput(from: address,
-                                                                                        gas: gasLimit,
-                                                                                        gasPrice: userGas,
-                                                                                        value: new HexBigInteger(0),
-                                                                                        functionInput: dataInputMega);
-                                }
-                                catch (Exception ex)
-                                {
-                                    Program.Print(string.Format("No extra ERC20 Addresses Selected"));
-                                    transaction = m_mintMethod.CreateTransactionInput(from: address,
-                                                                                      gas: gasLimit,
-                                                                                      gasPrice: userGas,
-                                                                                      value: new HexBigInteger(0),
-                                                                                      functionInput: dataInputMega);
-                                    if (isCloseToReadjustment)
-                                    {
-                                        transaction = m_mintMethod.CreateTransactionInput(from: address,
-                                                                                            gas: gasLimit,
-                                                                                            gasPrice: userGas,
-                                                                                            value: new HexBigInteger(0),
-                                                                                            functionInput: dataInputMega);
-                                    }
-
-
-
-
-                                }
-
-                                encodedTx = Web3.OfflineTransactionSigner.SignTransaction(privateKey: m_account.PrivateKey,
-                                                                                              to: m_contract.Address,
-                                                                                              amount: 0,
-                                                                                              nonce: txCount.Value,
-                                                                                              chainId: new HexBigInteger(280),
-                                                                                              gasPrice: userGas,
-                                                                                              gasLimit: estimatedGasLimit,
-                                                                                              data: transaction.Data);
-
-                            }
-
-                            if(false)
-                            {
-                                transaction = m_mintMethod.CreateTransactionInput(from: address,
-                                                                                        gas: gasLimit,
-                                                                                        gasPrice: userGas,
-                                                                                        value: new HexBigInteger(getTotalETHowedtoSendtoContract+1),
-                                                                                        functionInput: dataInputMegaLentum);
-                                if (isCloseToReadjustment)
-                                {
-                                    transaction = m_mintMethod.CreateTransactionInput(from: address,
-                                                                                        gas: gasLimit,
-                                                                                        gasPrice: userGas,
-                                                                                        value: new HexBigInteger(getTotalETHowedtoSendtoContract+1),
-                                                                                        functionInput: dataInputMegaLentum);
-                                }
-                                */
-                              /*  encodedTx = Web3.OfflineTransactionSigner.SignTransaction(privateKey: m_account.PrivateKey,
-                                                                                              to: m_contract.Address,
-                                                                                              amount: 0,
-                                                                                              nonce: txCount.Value,
-                                                                                              chainId: new HexBigInteger(m_chainID),
-                                                                                              gasPrice: userGas,
-                                                                                              gasLimit: estimatedGasLimit,
-                                                                                              data: transaction.Data);
-                              */
-
-                            
-
+                          
 
                             var userGas2 = m_web3.Eth.GasPrice.SendRequestAsync().Result;
 
@@ -2253,104 +1859,8 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                 var web3WithSigner = new Web3(account, m_web3.Client);
 
 
-                                // Sign the transaction (synchronous)
-                           // transactionID = web3WithSigner.Eth.TransactionManager.SendTransactionAsync(transactionInput).Result;
-                                                        
-
-                           // Program.Print(string.Format("(maxgasPriority: {0}", maxgasPrior));
                             Program.Print(string.Format("(maxGasPrice: {0}", maxGas));
-                           // Program.Print(string.Format("( m_contract.Address: {0}", m_contract.Address));
-                           // Program.Print(string.Format("(gasLimit3: {0}", gasLimit3));
-                            //Program.Print(string.Format("(txCoun5t: {0}", txCoun5t));
-                            //Program.Print(string.Format("(valueee: {0}", valueee));
-                            //Program.Print(string.Format("( transaction.Data: {0}", transaction.Data));
-
-
-                            // Get the RLP-encoded transaction (this is the encoded transaction ready for signing)
-                            //var rlpEncoded = transaction555f.GetRLPEncoded();
-
-                            //Program.Print("[WEARE]HERE 1  ");
-                            // Create an EthECKey instance from the private key
-                            //var key = new Nethereum.Signer.EthECKey(m_account.PrivateKey);
-                            // Sign the RLP-encoded transaction
-                           // var signature = key.Sign(rlpEncoded);
-
-                         //   Program.Print("[WEARE]HERE 2  ");
-
-                         //   Program.Print("[WEARE]HERE2  " + signature);
-                         //   Program.Print("[WEARE]HERE2  " + signature);
-                            // Get the v, r, s components of the signature
-                            // Step 3: Convert Signature Components to BigInteger
-                         //   Program.Print("[WEARE]HERE2 signature.R " + signature.R);
-                          //  var r = new Org.BouncyCastle.Math.BigInteger(signature.R);
-                           // Program.Print("[WEARE]HERE2 s " + r);
-                         //   Program.Print("[WEARE]HERE2 signature.S " + signature.S);
-                         //   var s = new Org.BouncyCastle.Math.BigInteger(signature.S);
-                          //  Program.Print("[WEARE]HERE2 s " + s);
-                         //   Program.Print("[WEARE]HERE2 signature.V " + signature.V);
-                         //   var v = vvvvv;
-                         //   Program.Print("[WEARE]HERE2 v " + v);
-                          //  Program.Print("[WEARE]HERE3 ");
-                            // Step 2: Set the Transaction Signature
-
-
-                            // Set the signature components (r, s, v) to the transaction
-                           // transaction555f.Sign(key); // This assigns the signature (r, s, v) to the transaction
-
-                          //  Program.Print("[WEARE]HERE 5  ");
-
-                          //  var encodedTx2f  = transaction555f.GetRLPEncoded();
-                            
-                            // Convert the byte array to a hex string
-                         //   string encodedTxHex = BitConverter.ToString(encodedTx2f).Replace("-", "").ToLower();
-
-                            // Now you can print the hexadecimal representation of the encoded transaction
-                           // Program.Print(string.Format("[encodedTx]encodedTx  {0}", encodedTxHex));
-
-
-
-                          //  Program.Print(string.Format("[encodedTx]encodedTx encodedTx  {0}", encodedTxHex));
-                         //   Program.Print(string.Format("[encodedTx]encodedTx encodedTx  {0}", encodedTxHex));
-                         //   Program.Print(string.Format("[PURE FORM]encodedTx2f  {0}", encodedTx2f));
-                            /*if (!Web3.OfflineTransactionSigner.VerifyTransaction(encodedTx))
-                                throw new Exception("Failed to verify transaction.");
-                            */
-                            //var miningParameters = GetMiningParameters();
-                            // var OutputtedAmount = miningParameters.MiningDifficulty2.Value;
-                            // var OutputtedAmount2 = BigInteger.Divide(miningParameters.MiningDifficulty2.Value, 1000000000000000);
-                            // var intEE = (double)(OutputtedAmount2);
-                            //  intEE = intEE / 1000;
-                            //Program.Print(string.Format("[INFO] Current Reward for Solve is {0} zkBTC", OutputtedAmount));
-                            // Program.Print(string.Format("[INFO] Current Reward for Solve is {0} zkBTC", OutputtedAmount2));
-                            //  Program.Print(string.Format("[INFO] Current Reward for Solve is {0} zkBTC", intEE));
-                            // Program.Print(string.Format("[INFO] Current MINIMUM Reward for Solve is {0} zkBTC", m_gasApiMultiplier2));
-                            
-                            // Program.Print(string.Format("[INFO] MinZKBTCperMint is {0} zkBTC", m_MinZKBTCperMint));
-                            var miningParameters2 = GetMiningParameters2();
-
-                            var OutputtedAmount3 = miningParameters2.MiningDifficulty2.Value;
-                            var OutputtedAmount5 = BigInteger.Divide(miningParameters2.MiningDifficulty2.Value, 1000000000000000);
-                            var intEE2 = (double)(OutputtedAmount5);
-                            intEE2 = intEE2 / 1000;
-                            var newChallengez = miningParameters2.Challenge.Value;
-                            var newChallengez2 = miningParameters2.ChallengeByte32String;
-                            var fff = miningParameters2.ChallengeByte32String;
-                            //Program.Print(string.Format("[INFO] Current Challenge is  {0}", newChallengez));
-                            //Program.Print(string.Format("[INFO] Current Challenge is  {0}", newChallengez2));
-                            if (newChallengez != OriginalChal || newChallengez2 != submittedChallengeByte32String)
-                            {
-                                Program.Print(string.Format("[INFO] Submission cancelled, someone has solved this challenge. Try lowering MinBWORKperMint variable to submit before them."));
-                                Task.Delay(500).Wait();
-                                UpdateMinerTimer_Elapsed(this, null);
-                                OnNewChallenge(this, miningParameters2.ChallengeByte32, MinerAddress);
-                                return false;
-
-                            }
-                            else
-                            {
-
-                            }
-
+                        
                             Console.ForegroundColor = ConsoleColor.White; // Set text color to blue
                             Console.BackgroundColor = ConsoleColor.DarkBlue; // Set background color to a darker blue
 
@@ -2373,152 +1883,6 @@ for (int i = 0; i < dataInputERC20.Length; i++)
 
 
 
-                            /*
-
-                            string filePathfiy = "transactionHash.txt"; // Replace with the actual file path
-
-
-                            File.Delete(filePathfiy);
-
-                            // Convert to hex strings
-                            foreach (var hexString in lastChallengeArray2xz)
-                            {
-                               // Console.WriteLine("REAL CHALLENGE" + hexString);
-                            }
-                            var hexStrings2 = ConvertByteArrayListToHex(lastChallengeArray2xz);
-
-                            // Output each hex string
-                            foreach (var hexString in hexStrings2)
-                            {
-                               // Console.WriteLine(hexString);
-                            }
-
-                            string combinedHexString2 = String.Join(", ", hexStrings2);
-                           // Program.Print("HEX FIRST 2STUFF: " + combinedHexString2);
-
-
-                           // Console.WriteLine("DONE CHALLENGES");
-
-                            var hexStrings = ConvertBigIntegersToHex(filteredLastNonceArray2x);
-
-                            // Output as a single string (joined by a space or another separator)
-                            string combinedHexString = String.Join(", ", hexStrings);
-                            // Program.Print("HEX 2STUFF: " + combinedHexString);
-
-
-                            var filePathtxt3 = "aDataToMintHexChallenge.txt";
-
-                            var filePathtxt2 = "aDataToMintHexNonce.txt";
-
-                            File.WriteAllText(filePathtxt3, combinedHexString2);
-
-
-                            File.WriteAllText(filePathtxt2, combinedHexString);
-
-
-
-                           // Program.Print("SENT CHALLENGES and Digests to paymaster, begin waiting for reply");
-                            LastSubmitLatency = (int)((DateTime.Now - startSubmitDateTime).TotalMilliseconds);
-                            // Create a Stopwatch instance
-                            Stopwatch stopwatch = new Stopwatch();
-
-                            stopwatch.Start();
-
-                            // Output the total elapsed time
-                          //  Console.WriteLine($"Total time elapsed: {stopwatch.ElapsedMilliseconds} ms");
-                            var hasWaited2 = false;
-                            while ((transactionID == null && stopwatch.ElapsedMilliseconds < 60500) && OnlyRunPayMasterOnce && m_ETHwithMints)
-                            {
-
-                                try
-                                {
-
-                                    // Read the contents of the file into a string
-                                    string fileContentsfff = File.ReadAllText(filePathfiy);
-
-                                    transactionID = fileContentsfff;
-
-
-
-                                    string filePathfiyFFFFF = "MinmumMintsAtLeast.txt"; // Replace with the actual file path
-
-                                    string fileContentsfffvvvvvv = File.ReadAllText(filePathfiyFFFFF);
-
-                                    int TotalNumberOfLoopsNeededAtLeast = int.Parse(fileContentsfffvvvvvv);
-                                    if(TotalNumberOfLoopsNeededAtLeast > m_MaxZKBTCperMintORIGINAL / 50 && m_MaxZKBTCperMint != TotalNumberOfLoopsNeededAtLeast * 50)
-                                    {
-
-                                        Program.Print("Adjusting Max_Mints UP to : " + TotalNumberOfLoopsNeededAtLeast.ToString()+ " IF you believe this number of Mints is too high, switch to nonPayMaster mode");
-
-                                        Task.Delay(300).Wait();
-                                        Program.Print("Adjusting Max_Mints UP to : " + TotalNumberOfLoopsNeededAtLeast.ToString()+" IF you believe this number of Mints is too high, switch to nonPayMaster mode");
-                                        m_MaxZKBTCperMint = TotalNumberOfLoopsNeededAtLeast*50;
-                                        Task.Delay(500).Wait();
-                                        Program.Print("Adjusting Max_Mints to : " + TotalNumberOfLoopsNeededAtLeast.ToString()+ " IF you believe this number of Mints is too high, switch to nonPayMaster mode");
-                                        Task.Delay(500).Wait();
-                                        break;
-                                    }
-                                    if(TotalNumberOfLoopsNeededAtLeast < m_MaxZKBTCperMintORIGINAL / 50 && m_MaxZKBTCperMint != TotalNumberOfLoopsNeededAtLeast * 50)
-                                    {
-                                        if (m_MaxZKBTCperMintORIGINAL / 50 < TotalNumberOfLoopsNeededAtLeast && m_MaxZKBTCperMintOLD != 0)
-                                        {
-                                            Task.Delay(300).Wait();
-                                            Program.Print("Adjusting Max_Mints DOWN to : " + TotalNumberOfLoopsNeededAtLeast.ToString() + "just because your Config settings say go down to 'MaxZKBTCperMint' in _zkBitcoinMiner.conf");
-                                            m_MaxZKBTCperMint = TotalNumberOfLoopsNeededAtLeast * 50;
-                                            Program.Print("Adjusting Max_Mints DOWN to : " + TotalNumberOfLoopsNeededAtLeast.ToString() + "just because your Config settings say go down to 'MaxZKBTCperMint' in _zkBitcoinMiner.conf");
-
-                                            Task.Delay(500).Wait();
-
-                                        }
-                                    }
-                                    if(TotalNumberOfLoopsNeededAtLeast == -1)
-                                    {
-                                        //If there is too many loops needed we need to turn off PayMaster
-
-                                        //OnlyRunPayMasterOnce = false;
-                                    }
-                                    // Display the read string
-                                    Console.WriteLine("Minmum Mints needed at least to mint at your current minting prices: " + fileContentsfffvvvvvv);
-                                    Console.WriteLine("Transaction Hash of PayMaster:" + fileContentsfff);
-
-                                    // Delete the file
-                                    if (transactionID != null)
-                                    { 
-                                        File.Delete(filePathfiy);
-                                    }
-
-                                    Console.WriteLine("File deleted successfully.");
-
-                                }
-                                catch (Exception ex)
-                                {
-
-                                    Console.WriteLine("Waiting for transaction Hash from Paymaster");
-                                    Task.Delay(100).Wait();
-                                    Console.WriteLine("Waiting for transaction Hash from Paymaster");
-                                    // Console.WriteLine($"Error reading or deleting the file: {ex.Message}");
-                                }
-                                if (hasWaited2)
-                                {
-                                    Task.Delay(500).Wait();
-                                   // File.WriteAllText(filePathtxt3, combinedHexString2);
-
-
-                                   // File.WriteAllText(filePathtxt2, combinedHexString);
-
-
-                                }
-                                else
-                                {
-                                    Task.Delay(1000).Wait();
-                                    hasWaited2 = true;
-
-                                }
-                                // Output the total elapsed time
-                                Console.WriteLine($"Total time elapsed: {stopwatch.ElapsedMilliseconds} ms");
-
-                            }
-                            */
                             LastSubmitLatency = (int)((DateTime.Now - startSubmitDateTime).TotalMilliseconds);
 
                                 // Send the signed raw transaction (synchronous)
@@ -2530,32 +1894,32 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                             if (!string.IsNullOrWhiteSpace(transactionID))
                             {
                                 Program.Print("[INFO] Nonce submitted with transaction ID: " + transactionID);
-
-                                //if (!IsChallengedSubmitted(challenge))
-                                //{
-                                //    m_submittedChallengeList.Insert(0, challenge.ToArray());
-                                //    if (m_submittedChallengeList.Count > 100) m_submittedChallengeList.Remove(m_submittedChallengeList.Last());
-                                //  }
-                                Program.Print("currentCounterLocationEnd: currentCounterLocationEnd: "+currentCounterLocationEnd);
-                                Program.Print("currentCounterLocationEnd: currentCounterLocationEnd: "+currentCounterLocationEnd);
                                 Program.Print("currentCounterLocationEnd: currentCounterLocationEnd: "+currentCounterLocationEnd);
 
                                 Task.Factory.StartNew(() => GetTransactionReciept(transactionID, address, gasLimit, userGas, LastSubmitLatency, DateTime.Now, currentCounterLocationEnd, challenge));
                                 var attemptedExits = 0;
-                                while (m_ResetIfEpochGoesUp != 3000 && attemptedExits < 6)
+                                while (m_ResetIfEpochGoesUp != 3000 && attemptedExits < 18)
                                 {
                                     attemptedExits = attemptedExits + 1;
                                     Program.Print("SLEEP after submit(to prevent small rewards)");
-                                    Task.Delay(3000).Wait();
+                                    Task.Delay(1000).Wait();
                                 }
 
-                                    Task.Delay(2000).Wait();
-                                var miningParameter22s = GetMiningParameters();
-                                var CurrentChallenge22 = miningParameter22s.ChallengeByte32;
-                               // OnNewChallenge(this, CurrentChallenge22, MinerAddress);
-                                Program.Print("SLEEP DONE after submit Time for another block");
+                                    Task.Delay(500).Wait();
+                                if (blocksToReadjustmentz < _BLOCKS_PER_READJUSTMENT_ / 10)
+                                {
 
-                                OnGetMiningParameterStatus(this, true);
+                                    Program.Print("SLEEP DONE after submit Time for another block, close to readjustment checking for new Challenge");
+                                    CheckAndUpdateMiningParameters();
+
+                                    return false;
+
+                                }
+                                else
+                                {
+                                    Program.Print("SLEEP DONE after submit Time for another block");
+                                }
+                               // OnGetMiningParameterStatus(this, true);
                                 return false;
                             }
                             else
@@ -2567,6 +1931,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                     string test2 = "[INFO] Two bad retries with no PayMaster, turning off PayMaster";
                                     OnlyRunPayMasterOnce = false;
                                     Program.Print(string.Format(test2));
+                                    CheckAndUpdateMiningParameters();
 
                                     //OnNewChallenge(this, CurrentChallenge, MinerAddress);
                                     return false;
@@ -2673,11 +2038,102 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                     var miningParameters2fvvvvvv = GetMiningParameters2();
 
                     OnNewChallenge(this, miningParameters2fvvvvvv.ChallengeByte32, MinerAddress);
+                    CheckAndUpdateMiningParameters();
                         return false;
                 }
             }
 
             }
+
+        // Add this method to check and update all mining parameters
+        private void CheckAndUpdateMiningParameters()
+        {
+            Program.Print("[CheckAndUpdateMiningParameters] Calling CheckAndUpdateMiningParameters");
+            try
+            {
+                var miningParameters = GetMiningParameters();
+               // var miningParameters2 = GetMiningParameters2();
+                if (miningParameters == null) return;
+
+                bool hasUpdates = false;
+
+                // Check for new challenge
+                if (m_lastParameters == null || miningParameters.Challenge.Value != m_lastParameters.Challenge.Value)
+                {
+                    Program.Print($"[INFO] 4New challenge detected during submit check: {miningParameters.ChallengeByte32String}...");
+                    OnNewChallenge(this, miningParameters.ChallengeByte32, MinerAddress);
+                    CurrentChallenge = miningParameters.ChallengeByte32;
+                    hasUpdates = true;
+
+                    if (m_challengeReceiveDateTime == DateTime.MinValue)
+                        m_challengeReceiveDateTime = DateTime.Now;
+
+                    m_newChallengeResetEvent.Set();
+                }
+
+                // Check for new target
+                if (m_lastParameters == null || miningParameters.MiningTarget.Value != m_lastParameters.MiningTarget.Value)
+                {
+                    Program.Print($"[INFO] New target detected during submit check: {miningParameters.MiningTargetByte32String}...");
+                    OnNewTarget(this, miningParameters.MiningTarget);
+                    CurrentTarget = miningParameters.MiningTarget;
+                    hasUpdates = true;
+                }
+
+                // Check for new difficulty
+                if (m_lastParameters == null || miningParameters.MiningDifficulty.Value != m_lastParameters.MiningDifficulty.Value)
+                {
+                    float test = (float)((double)BigInteger.Pow(2, 234) / (double)miningParameters.MiningTarget.Value);
+
+                    // Convert to a string with high precision, then process it
+                    string testStr = test.ToString("F20"); // Convert to a string with up to 20 decimal places
+
+                    // Find the index of the first non-zero digit after the decimal point
+                    int firstNonZeroIndex = testStr.IndexOfAny("123456789".ToCharArray(), testStr.IndexOf('.') + 1);
+
+                    if (firstNonZeroIndex > -1 && test < 1)
+                    {
+                        // Extract up to two significant digits after the first non-zero digit
+                        int endIndex = Math.Min(firstNonZeroIndex + 3, testStr.Length); // Ensure we don't go out of bounds
+                        string formattedTest = testStr.Substring(0, endIndex);
+
+                        Program.Print($"[INFO] New difficulty detected Normalized Difficulty = ({formattedTest})...");
+                    }
+                    else
+                    {
+
+                        double test12 = (double)BigInteger.Pow(2, 234) / (double)miningParameters.MiningTarget.Value;
+                        string formattedTest12 = test12.ToString("F2"); // Formats the number to 2 decimal places
+
+                        // Handle the unlikely case where no significant digit is found
+                        Program.Print($"[INFO] New difficulty detected Normalized Difficulty = ({formattedTest12})...");
+                    }
+
+
+
+                    Program.Print(string.Format("[INFO] New difficulty detected ({0})...", miningParameters.MiningDifficulty.Value));
+
+
+                    // Your existing difficulty calculation logic here
+                    OnNewDifficulty?.Invoke(this, miningParameters.MiningDifficulty);
+                    Difficulty = miningParameters.MiningDifficulty;
+                    hasUpdates = true;
+
+                    // Include your difficulty calculation and target update logic from UpdateMinerTimer_Elapsed
+                }
+
+                // Only update m_lastParameters if there were actual changes
+                if (hasUpdates)
+                {
+                    m_lastParameters = miningParameters;
+                }
+            }
+            catch (Exception ex)
+            {
+                Program.Print($"[ERROR] Error checking mining parameters: {ex.Message}");
+            }
+        }
+
 
         public override void Dispose()
         {
@@ -4137,7 +3593,7 @@ catch (Exception ex)
                 }
 
 
-    UpdateMinerTimer_Elapsed(this, null);
+    //UpdateMinerTimer_Elapsed(this, null);
             }
             catch (AggregateException ex)
             {

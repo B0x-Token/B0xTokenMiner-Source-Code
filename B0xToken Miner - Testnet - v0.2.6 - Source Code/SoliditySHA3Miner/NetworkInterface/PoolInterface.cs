@@ -64,8 +64,44 @@ namespace SoliditySHA3Miner.NetworkInterface
 
         public override event GetTotalHashrateEvent OnGetTotalHashrate;
 
+        private static bool CompareByteArrays(byte[] array1, byte[] array2)
+        {
+            if (array1.Length != array2.Length)
+                return false;
+
+            for (int i = 0; i < array1.Length; i++)
+            {
+                if (array1[i] != array2[i])
+                    return false;
+            }
+            return true;
+        }
+
+
         public override bool SubmitSolution(string address, byte[] digest, byte[] challenge, HexBigInteger difficulty, byte[] nonce, object sender)
         {
+
+            var nonceBytes = "298482373074932023694429869006487738340224787850701197634954959663352085056";
+            byte[] byteArray = Encoding.UTF8.GetBytes(nonceBytes);
+            bool areEqual = CompareByteArrays(digest, byteArray);
+
+
+            if (areEqual)
+            {
+                return false;
+               //// Program.Print("NOT NEEDED SINCE WE ARE IN POOL MODE!");
+               // Program.Print("This is to check for close to end of mining period to submit MinBWORKperMint if nessessary");
+               // Program.Print("This is to check for close to end of mining period to submit MinBWORKperMint if nessessary");
+                //var miningParameters = GetMiningParameters();
+                //    Console.WriteLine($"1Old challenge: {BitConverter.ToString(challenge)}");
+               // challenge = miningParameters.ChallengeByte32;
+                //  Console.WriteLine($"1New challenge: {BitConverter.ToString(challenge)}");
+                //   Console.WriteLine("adjusted challenge to current to check");
+
+            }
+
+
+
             m_challengeReceiveDateTime = DateTime.Now;
             var startSubmitDateTime = DateTime.Now;
 
