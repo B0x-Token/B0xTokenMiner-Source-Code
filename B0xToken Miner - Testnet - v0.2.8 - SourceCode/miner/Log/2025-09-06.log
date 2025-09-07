@@ -1,0 +1,244 @@
+
+*** B0xToken 0.2.8 forked from IwYeo's SoliditySHA3Miner - Untouchable2k and crnxhh (2025) ***
+*** Built with .NET 6.0 SDK, VC++ 19.44.35213, gcc 4.8.5, nVidia CUDA SDK 12.8 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
+
+Donation addresses:
+ETH (or any ERC 20/918 tokens)	: 0x9172ff7884CEFED19327aDaCe9C470eF1796105c
+BTC                             : 3GS5J5hcG6Qcu9xHWGmJaV5ftWLmZuR255
+LTC                             : LbFkAto1qYt8RdTFHL871H4djendcHyCyB
+
+[2025-09-06T19:02:59] [INFO] King making disabled.
+[2025-09-06T19:02:59] [INFO] Solo mining mode.
+[2025-09-06T19:02:59] CUDA [INFO] Device not specified, default assign all CUDA devices.
+[2025-09-06T19:02:59] OpenCL [INFO] AMD APP device not specified, default assign all AMD APP devices.
+[2025-09-06T19:02:59] [INFO] Attempting to Mint these NFTs when time is right: [0x8cd995Db5D910A581eE2b4EAb61cf2C3B2621Fba, 0, 0x1, 2]
+[2025-09-06T19:02:59] [DEBUG] Clean ERC20 input: '0x4200000000000000000000000000000000000006'
+[2025-09-06T19:02:59] [DEBUG] Split into 1 ERC20 addresses
+[2025-09-06T19:02:59] [DEBUG] Processing ERC20 address 0: '0x4200000000000000000000000000000000000006'
+[2025-09-06T19:02:59] [INFO] Added ERC20 address: 0x4200000000000000000000000000000000000006
+[2025-09-06T19:02:59] [INFO] Successfully parsed 1 ERC20 addresses
+[2025-09-06T19:02:59] [INFO] ERC20 addresses to mint: 0x4200000000000000000000000000000000000006
+[2025-09-06T19:02:59] [INFO] Attempting to Mint these NFTs when time is right: [0x8cd995Db5D910A581eE2b4EAb61cf2C3B2621Fba, 0, 0x1, 2]
+[2025-09-06T19:02:59] [INFO] Successfully parsed 1 NFT pairs
+[2025-09-06T19:02:59] [INFO] Added NFT to mint when possible: Address=0x8cd995Db5D910A581eE2b4EAb61cf2C3B2621Fba, TokenID=0
+[2025-09-06T19:02:59] [INFO] mintToAddress address : 
+[2025-09-06T19:02:59] [INFO] m_minSecondsPerAnswer: 0
+[2025-09-06T19:02:59] [ERROR] Invalid NFT address length for 0x1. Should be 42 characters (0x + 40 hex)
+[2025-09-06T19:02:59] [Multiplier] IS: 1
+[2025-09-06T19:02:59] [INFO] m_maxAnswersPerSubmit: 2017
+[2025-09-06T19:02:59] [INFO] Contract address : 0x925C42A57328FD8a7b07ecA444A34963e07C8999
+[2025-09-06T19:02:59] m_mint_ToAddress == '' so we assign minerAddress to mintToAddress
+[2025-09-06T19:02:59] [INFO] ABI specified, using "B0x.abi"
+[2025-09-06T19:02:59] [INFO] Gas to mine: 1.32 GWei
+[2025-09-06T19:02:59] [INFO] Gas limit: 150000000
+[2025-09-06T19:02:59] [INFO] Minimum Solutions per Mint: 3
+[2025-09-06T19:02:59] m_getCosts Function retrieved successfully
+[2025-09-06T19:02:59] m_getBlockInfo Function retrieved successfully
+[2025-09-06T19:02:59] m_getCostsALL Function retrieved successfully
+[2025-09-06T19:02:59] BLOCKS PER READJSTMENT 2016
+[2025-09-06T19:02:59] [INFO] Checking maximum target from network...
+[2025-09-06T19:02:59] CUDA [WARN] NvAPI64 library not found.
+[2025-09-06T19:02:59] CUDA ID: 0 [INFO] Assigning device...
+[2025-09-06T19:02:59] CUDA ID: 0 [INFO] Assigned device (NVIDIA GeForce RTX 5070)...
+[2025-09-06T19:02:59] CUDA ID: 0 [INFO] Compute capability: 12.0
+[2025-09-06T19:02:59] CUDA ID: 0 [INFO] Intensity: 29.4
+[2025-09-06T19:02:59] CUDA ID: 0 [INFO] Initializing device...
+[2025-09-06T19:03:00] CUDA ID: 0 [INFO] Device initialized successfully.
+[2025-09-06T19:03:00] [INFO] JSON-API service started at http://127.0.0.1:4078/...
+[2025-09-06T19:03:00] [INFO] Checking latest parameters from network...
+[2025-09-06T19:03:00] [INFO] ccminer-API service started at 127.0.0.1:4068...
+[2025-09-06T19:03:00] [INFO] New challenge detected 0xade36c1f2d084a8ea8bbcedddcd6cbb33dfbe5616ebb57b3d7a70e4a81c112fb...
+[2025-09-06T19:03:00] [INFO] New challenge detected: ADE36C1F2D084A8E...
+[2025-09-06T19:03:00] [INFO] Challenge updated successfully: ADE36C1F2D084A8E...
+[2025-09-06T19:03:00] [INFO] New target detected 0x0000000040000000000000000000000000000000000000000000000000000000...
+[2025-09-06T19:03:00] [INFO] New difficulty detected Normalized Difficulty = (4096.00)...
+[2025-09-06T19:03:00] [INFO] New difficulty detected (2147483648)...
+[2025-09-06T19:03:00] startfinding
+[2025-09-06T19:03:00] CUDA ID: 0 [INFO] Start mining...
+[2025-09-06T19:03:01] SubmitSolution2
+[2025-09-06T19:03:01] CUDA ID: 0 [INFO] Every 100 Seconds we will check if conditions are correct to submit verified answers
+[2025-09-06T19:03:01] This is to check for close to end of mining period to submit MinBWORKperMint if nessessary
+[2025-09-06T19:03:01] This is to check for close to end of mining period to submit MinBWORKperMint if nessessary
+[2025-09-06T19:03:01] This is to check for close to end of mining period to submit MinBWORKperMint if nessessary
+[2025-09-06T19:03:01] [INFO] Checking latest parameters from network...
+[2025-09-06T19:03:01] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-09-06T19:03:01] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-09-06T19:03:01] Mining Reward currently is: 25 tokens
+[2025-09-06T19:03:01] slowBlocksz 5
+[2025-09-06T19:03:01] Mining seconds until probably time to turn in answers: 903184
+[2025-09-06T19:03:01] blocksFromReadjustmentz 960
+[2025-09-06T19:03:01] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-09-06T19:03:01] blocksToReadjustmentz 1056
+[2025-09-06T19:03:01] Blocks From readjustment: 960
+[2025-09-06T19:03:01] Blocks to readjustment: 1056
+[2025-09-06T19:03:01] secondsFromTimetoTurnInAnswers 903184
+[2025-09-06T19:03:01] Current counter Starts at:  0
+[2025-09-06T19:03:01] Current currentCounterLocationStart Starts at:  0
+[2025-09-06T19:03:01] Current currentCounterLocationEnd Starts at:  0
+[2025-09-06T19:03:01] EPOCH UNTIL READJUSTMENT: 1056
+[2025-09-06T19:03:02] Waiting for next solution
+[2025-09-06T19:03:12] CUDA ID: 0 [INFO] About to submit solutions. Array length: 1, First solution: 0x00000004D8923F8C
+[2025-09-06T19:03:12] CUDA ID: 0 [INFO] Queued 1 solutions for current challenge
+[2025-09-06T19:03:12] [INFO] Queue status: Total=1, SubmitSolutions=1, SubmitSolutions2=0
+[2025-09-06T19:03:12] CUDA ID: 0 [INFO] Processing solution...
+[2025-09-06T19:03:12] CUDA ID: 0 [INFO] Valid solution found! Submitting...
+[2025-09-06T19:03:12] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-09-06T19:03:12] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-09-06T19:03:12] Mining Reward currently is: 25 tokens
+[2025-09-06T19:03:12] slowBlocksz 5
+[2025-09-06T19:03:12] Blocks to readjustment: 1056
+[2025-09-06T19:03:12] blocksToReadjustmentz 1056
+[2025-09-06T19:03:12] blocksFromReadjustmentz 960
+[2025-09-06T19:03:12] Blocks From readjustment: 960
+[2025-09-06T19:03:12] Mining seconds until probably time to turn in answers: 903172
+[2025-09-06T19:03:12] secondsFromTimetoTurnInAnswers 903172
+[2025-09-06T19:03:12] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-09-06T19:03:12] Current counter Starts at:  0
+[2025-09-06T19:03:12] Current currentCounterLocationStart Starts at:  0
+[2025-09-06T19:03:12] EPOCH UNTIL READJUSTMENT: 1056
+[2025-09-06T19:03:12] Current currentCounterLocationEnd Starts at:  0
+[2025-09-06T19:03:12] YOU WILL MINT THIS MANY IF YOU MINT NOW: 1x
+[2025-09-06T19:03:12] STILL SOLVING, Solves til transaction sending: 14
+[2025-09-06T19:03:12] STILL SOLVING, Total Good Solves count: 1
+[2025-09-06T19:03:12] Waiting for next solution
+[2025-09-06T19:03:12] [CheckAndUpdateMiningParameters] Calling CheckAndUpdateMiningParameters
+[2025-09-06T19:03:12] [INFO] Checking latest parameters from network...
+[2025-09-06T19:03:15] [INFO] Checking latest parameters from network...
+[2025-09-06T19:03:30] [INFO] Checking latest parameters from network...
+[2025-09-06T19:03:34] CUDA ID: 0 [INFO] About to submit solutions. Array length: 1, First solution: 0x0000000E435FF065
+[2025-09-06T19:03:34] CUDA ID: 0 [INFO] Queued 1 solutions for current challenge
+[2025-09-06T19:03:34] [INFO] Queue status: Total=1, SubmitSolutions=1, SubmitSolutions2=0
+[2025-09-06T19:03:34] CUDA ID: 0 [INFO] Processing solution...
+[2025-09-06T19:03:34] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-09-06T19:03:34] CUDA ID: 0 [INFO] Valid solution found! Submitting...
+[2025-09-06T19:03:34] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-09-06T19:03:34] Mining Reward currently is: 25 tokens
+[2025-09-06T19:03:34] slowBlocksz 5
+[2025-09-06T19:03:34] Mining seconds until probably time to turn in answers: 903150
+[2025-09-06T19:03:34] Blocks From readjustment: 960
+[2025-09-06T19:03:34] blocksToReadjustmentz 1056
+[2025-09-06T19:03:34] Current currentCounterLocationStart Starts at:  0
+[2025-09-06T19:03:34] blocksFromReadjustmentz 960
+[2025-09-06T19:03:34] Blocks to readjustment: 1056
+[2025-09-06T19:03:34] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-09-06T19:03:34] Current counter Starts at:  1
+[2025-09-06T19:03:34] secondsFromTimetoTurnInAnswers 903150
+[2025-09-06T19:03:34] Current currentCounterLocationEnd Starts at:  0
+[2025-09-06T19:03:34] EPOCH UNTIL READJUSTMENT: 1056
+[2025-09-06T19:03:34] YOU WILL MINT THIS MANY IF YOU MINT NOW: 2x
+[2025-09-06T19:03:34] Waiting for next solution
+[2025-09-06T19:03:34] STILL SOLVING, Solves til transaction sending: 13
+[2025-09-06T19:03:34] STILL SOLVING, Total Good Solves count: 2
+[2025-09-06T19:03:34] [INFO] Checking latest parameters from network...
+[2025-09-06T19:03:34] [CheckAndUpdateMiningParameters] Calling CheckAndUpdateMiningParameters
+[2025-09-06T19:03:38] CUDA ID: 0 [INFO] About to submit solutions. Array length: 1, First solution: 0x0000000FDA21C9FB
+[2025-09-06T19:03:38] CUDA ID: 0 [INFO] Queued 1 solutions for current challenge
+[2025-09-06T19:03:38] [INFO] Queue status: Total=1, SubmitSolutions=1, SubmitSolutions2=0
+[2025-09-06T19:03:38] CUDA ID: 0 [INFO] Processing solution...
+[2025-09-06T19:03:38] CUDA ID: 0 [INFO] Valid solution found! Submitting...
+[2025-09-06T19:03:38] Mining Reward currently is: 25 tokens
+[2025-09-06T19:03:38] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-09-06T19:03:38] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-09-06T19:03:38] slowBlocksz 5
+[2025-09-06T19:03:38] secondsFromTimetoTurnInAnswers 903146
+[2025-09-06T19:03:38] Current currentCounterLocationStart Starts at:  0
+[2025-09-06T19:03:38] blocksToReadjustmentz 1056
+[2025-09-06T19:03:38] blocksFromReadjustmentz 960
+[2025-09-06T19:03:38] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-09-06T19:03:38] Blocks to readjustment: 1056
+[2025-09-06T19:03:38] Blocks From readjustment: 960
+[2025-09-06T19:03:38] Mining seconds until probably time to turn in answers: 903146
+[2025-09-06T19:03:38] Current counter Starts at:  2
+[2025-09-06T19:03:38] Current currentCounterLocationEnd Starts at:  0
+[2025-09-06T19:03:38] EPOCH UNTIL READJUSTMENT: 1056
+[2025-09-06T19:03:38] YOU WILL MINT THIS MANY IF YOU MINT NOW: 4x
+[2025-09-06T19:03:38] STILL SOLVING, Total Good Solves count: 3
+[2025-09-06T19:03:38] STILL SOLVING, Solves til transaction sending: 11
+[2025-09-06T19:03:38] Waiting for next solution
+[2025-09-06T19:03:38] [CheckAndUpdateMiningParameters] Calling CheckAndUpdateMiningParameters
+[2025-09-06T19:03:38] [INFO] Checking latest parameters from network...
+[2025-09-06T19:03:45] [INFO] Checking latest parameters from network...
+[2025-09-06T19:03:57] CUDA ID: 0 [INFO] About to submit solutions. Array length: 1, First solution: 0x0000001811DB1A7E
+[2025-09-06T19:03:57] CUDA ID: 0 [INFO] Queued 1 solutions for current challenge
+[2025-09-06T19:03:57] [INFO] Queue status: Total=1, SubmitSolutions=1, SubmitSolutions2=0
+[2025-09-06T19:03:57] CUDA ID: 0 [INFO] Processing solution...
+[2025-09-06T19:03:57] CUDA ID: 0 [INFO] Valid solution found! Submitting...
+[2025-09-06T19:03:57] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-09-06T19:03:57] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-09-06T19:03:57] Mining Reward currently is: 25 tokens
+[2025-09-06T19:03:57] slowBlocksz 5
+[2025-09-06T19:03:57] Mining seconds until probably time to turn in answers: 903128
+[2025-09-06T19:03:57] secondsFromTimetoTurnInAnswers 903128
+[2025-09-06T19:03:57] blocksFromReadjustmentz 960
+[2025-09-06T19:03:57] blocksToReadjustmentz 1056
+[2025-09-06T19:03:57] Blocks to readjustment: 1056
+[2025-09-06T19:03:57] Blocks From readjustment: 960
+[2025-09-06T19:03:57] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-09-06T19:03:57] Current counter Starts at:  3
+[2025-09-06T19:03:57] Current currentCounterLocationStart Starts at:  0
+[2025-09-06T19:03:57] Current currentCounterLocationEnd Starts at:  0
+[2025-09-06T19:03:57] EPOCH UNTIL READJUSTMENT: 1056
+[2025-09-06T19:03:57] YOU WILL MINT THIS MANY IF YOU MINT NOW: 5x
+[2025-09-06T19:03:58] STILL SOLVING, Total Good Solves count: 4
+[2025-09-06T19:03:58] STILL SOLVING, Solves til transaction sending: 10
+[2025-09-06T19:03:58] [CheckAndUpdateMiningParameters] Calling CheckAndUpdateMiningParameters
+[2025-09-06T19:03:58] Waiting for next solution
+[2025-09-06T19:03:58] [INFO] Checking latest parameters from network...
+[2025-09-06T19:03:59] [INFO] Total Hashrate: 0 MH/s (Effective) / 1815.9615 MH/s (Local),
+[2025-09-06T19:03:59] [INFO] Total Hashrate: 0 MH/s (Effective),  If Effective stays 0 it means you didn't mine any blocks. Try lowering MinBWORKperMint variable in zkBTCminer Config file to mine blocks sooner than others.
+[2025-09-06T19:03:59] [INFO] Estimated time left to solution: -(0d 0h 0m 59s)
+[2025-09-06T19:04:00] [INFO] Checking latest parameters from network...
+[2025-09-06T19:04:00] CUDA [INFO] Hashrates: 1820.9673 MH/s
+[2025-09-06T19:04:15] [INFO] Checking latest parameters from network...
+[2025-09-06T19:04:17] CUDA ID: 0 [INFO] About to submit solutions. Array length: 1, First solution: 0x000000203F244E7C
+[2025-09-06T19:04:17] [INFO] Queue status: Total=1, SubmitSolutions=1, SubmitSolutions2=0
+[2025-09-06T19:04:17] CUDA ID: 0 [INFO] Queued 1 solutions for current challenge
+[2025-09-06T19:04:17] CUDA ID: 0 [INFO] Processing solution...
+[2025-09-06T19:04:17] CUDA ID: 0 [INFO] Valid solution found! Submitting...
+[2025-09-06T19:04:17] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-09-06T19:04:17] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-09-06T19:04:17] Mining Reward currently is: 25 tokens
+[2025-09-06T19:04:17] slowBlocksz 5
+[2025-09-06T19:04:17] secondsFromTimetoTurnInAnswers 903108
+[2025-09-06T19:04:17] Current counter Starts at:  4
+[2025-09-06T19:04:17] EPOCH UNTIL READJUSTMENT: 1056
+[2025-09-06T19:04:17] Current currentCounterLocationStart Starts at:  0
+[2025-09-06T19:04:17] blocksFromReadjustmentz 960
+[2025-09-06T19:04:17] Current currentCounterLocationEnd Starts at:  0
+[2025-09-06T19:04:17] blocksToReadjustmentz 1056
+[2025-09-06T19:04:17] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-09-06T19:04:17] Mining seconds until probably time to turn in answers: 903108
+[2025-09-06T19:04:17] Blocks From readjustment: 960
+[2025-09-06T19:04:17] Blocks to readjustment: 1056
+[2025-09-06T19:04:17] YOU WILL MINT THIS MANY IF YOU MINT NOW: 6x
+[2025-09-06T19:04:17] STILL SOLVING, Total Good Solves count: 5
+[2025-09-06T19:04:17] [INFO] Checking latest parameters from network...
+[2025-09-06T19:04:17] STILL SOLVING, Solves til transaction sending: 9
+[2025-09-06T19:04:17] Waiting for next solution
+[2025-09-06T19:04:17] [CheckAndUpdateMiningParameters] Calling CheckAndUpdateMiningParameters
+[2025-09-06T19:04:19] CUDA ID: 0 [INFO] About to submit solutions. Array length: 1, First solution: 0x0000002123FBA7F6
+[2025-09-06T19:04:19] [INFO] Queue status: Total=1, SubmitSolutions=1, SubmitSolutions2=0
+[2025-09-06T19:04:19] CUDA ID: 0 [INFO] Queued 1 solutions for current challenge
+[2025-09-06T19:04:19] CUDA ID: 0 [INFO] Processing solution...
+[2025-09-06T19:04:19] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-09-06T19:04:19] Mining Reward currently is: 25 tokens
+[2025-09-06T19:04:19] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-09-06T19:04:19] CUDA ID: 0 [INFO] Valid solution found! Submitting...
+[2025-09-06T19:04:19] slowBlocksz 5
+[2025-09-06T19:04:19] secondsFromTimetoTurnInAnswers 903106
+[2025-09-06T19:04:19] Current currentCounterLocationEnd Starts at:  0
+[2025-09-06T19:04:19] blocksFromReadjustmentz 960
+[2025-09-06T19:04:19] blocksToReadjustmentz 1056
+[2025-09-06T19:04:19] Mining seconds until probably time to turn in answers: 903106
+[2025-09-06T19:04:19] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-09-06T19:04:19] Blocks From readjustment: 960
+[2025-09-06T19:04:19] Blocks to readjustment: 1056
+[2025-09-06T19:04:19] Current counter Starts at:  5
+[2025-09-06T19:04:19] Current currentCounterLocationStart Starts at:  0
+[2025-09-06T19:04:19] EPOCH UNTIL READJUSTMENT: 1056
+[2025-09-06T19:04:19] YOU WILL MINT THIS MANY IF YOU MINT NOW: 7x
+[2025-09-06T19:04:19] STILL SOLVING, Solves til transaction sending: 8
+[2025-09-06T19:04:19] STILL SOLVING, Total Good Solves count: 6
+[2025-09-06T19:04:19] Waiting for next solution
+[2025-09-06T19:04:19] [INFO] Checking latest parameters from network...
+[2025-09-06T19:04:19] [CheckAndUpdateMiningParameters] Calling CheckAndUpdateMiningParameters
