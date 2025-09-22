@@ -2159,7 +2159,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                             GetEffectiveHashrate() / 1000000.0f, totalHashRate / 1000000.0f));
                 if (GetEffectiveHashrate() / 1000000.0f == 0)
                 {
-                    Program.Print(string.Format("[INFO] Total Hashrate: {0} MH/s (Effective),  If Effective stays 0 it means you didn't mine any blocks. Try lowering MinBWORKperMint variable in zkBTCminer Config file to mine blocks sooner than others.",
+                    Program.Print(string.Format("[INFO] Total Hashrate: {0} MH/s (Effective),  If Effective stays 0 it means you didn't mine any blocks. Try lowering MinBWORKperMint variable in B0xToken.conf file to mine blocks sooner than others.",
                                                 GetEffectiveHashrate() / 1000000.0f));
 
                 }
