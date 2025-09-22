@@ -1947,16 +1947,16 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                     Task.Delay(500).Wait();
 
                                     Task.Delay(500).Wait();
-                                    Program.Print("Adjusting Max_Mints to back to your normal mints of : " + m_MaxSolvesperMint.ToString() + " and switching to NonPayMaster Mode, try changing 'MaxZKBTCperMint' variable in _zkBitcoinMiner.conf to a higher number");
+                                    Program.Print("Adjusting Max_Mints to back to your normal mints of : " + m_MaxSolvesperMint.ToString() + " and switching to NonPayMaster Mode, try changing 'MaxSolvesperMint' variable in B0xToken.conf to a higher number");
                            
                                     Task.Delay(500).Wait();
-                                    Program.Print("Adjusting Max_Mints to back to your normal mints of : " + m_MaxSolvesperMint.ToString() + " and switching to NonPayMaster Mode, try changing 'MaxZKBTCperMint' variable in _zkBitcoinMiner.conf to a higher number");
+                                    Program.Print("Adjusting Max_Mints to back to your normal mints of : " + m_MaxSolvesperMint.ToString() + " and switching to NonPayMaster Mode, try changing 'MaxSolvesperMint' variable in B0xToken.conf to a higher number");
                                 
                                     Task.Delay(500).Wait();
-                                    Program.Print("Adjusting Max_Mints to back to your normal mints of : " + m_MaxSolvesperMint.ToString() + " and switching to NonPayMaster Mode, try changing 'MaxZKBTCperMint' variable in _zkBitcoinMiner.conf to a higher number");
+                                    Program.Print("Adjusting Max_Mints to back to your normal mints of : " + m_MaxSolvesperMint.ToString() + " and switching to NonPayMaster Mode, try changing 'MaxSolvesperMint' variable in B0xToken.conf to a higher number");
                                     Task.Delay(500).Wait();
 
-                                    string test5ff = "[INFO] Still Failling reseting counter and stuff, turning MaxZKBTC back to normal.";
+                                    string test5ff = "[INFO] Still Failling reseting counter and stuff, turning MaxSolvesperMint back to normal.";
                                     Program.Print(string.Format(test5ff));
 
                                     string filePathzff = "counter.txt";
@@ -2159,7 +2159,7 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                             GetEffectiveHashrate() / 1000000.0f, totalHashRate / 1000000.0f));
                 if (GetEffectiveHashrate() / 1000000.0f == 0)
                 {
-                    Program.Print(string.Format("[INFO] Total Hashrate: {0} MH/s (Effective),  If Effective stays 0 for longer than say half an averageadjustment period time, it means you didn't mine any blocks. Try lowering MinBWORKperMint variable in B0xToken.conf file to mine blocks sooner than others.",
+                    Program.Print(string.Format("[INFO] Total Hashrate: {0} MH/s (Effective),  If Effective stays 0 for longer than say half an averageadjustment period time, it means you didn't mine any blocks. Try lowering MinSolvesperMint & minSecondsPerAnswer & maxUSDperToken variable in B0xToken.conf file to mine blocks sooner than others.",
                                                 GetEffectiveHashrate() / 1000000.0f));
 
                 }
