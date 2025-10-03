@@ -1833,6 +1833,44 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                     Task.Delay(1500).Wait();
 
                                     estimatedGasLimit = 150000;
+                                    if (e.ToString().Contains("One or more errors occurred. (out of gas: gas required exceeds"))
+                                    {
+                                                {Program.Print("[Lower total submissions to blockchain] TOO MANY SOLUTIONS FOR GAS LIMIT! Try lowering MaxSolvesperMint and MinSolvesperMint   ❌ ❌ ❌");
+                                                Program.Print("[Lower total submissions to blockchain] TOO MANY SOLUTIONS FOR GAS LIMIT! Try lowering MaxSolvesperMint and MinSolvesperMint   ❌ ❌ ❌");
+                                                Program.Print("[Lower total submissions to blockchain] TOO MANY SOLUTIONS FOR GAS LIMIT! Try lowering MaxSolvesperMint and MinSolvesperMint   ❌ ❌ ❌");
+                                                
+                                                // Define reduction thresholds
+                                                int[] thresholds = { 2017, 1800, 1600, 1400, 1200, 1000, 800, 700, 600, 550, 500, 450, 400, 350, 300, 250, 225, 200, 175, 150, 125, 110, 100, 90, 80, 70, 60 };
+                                                int[] newValues = { 1800, 1600, 1400, 1200, 1000, 800, 700, 600, 550, 500, 450, 400, 350, 300, 250, 225, 200, 175, 150, 125, 110, 100, 90, 80, 70, 60, 50 };
+                                                
+                                                bool reduced = false;
+                                                for (int i = 0; i < thresholds.Length; i++)
+                                                {
+                                                    if (m_maxAnswersPerSubmit >= thresholds[i])
+                                                    {
+                                                        m_maxAnswersPerSubmit = newValues[i];
+                                                        reduced = true;
+                                                        break;
+                                                    }
+                                                }
+                                                
+                                                if (!reduced)
+                                                {
+                                                    Program.Print("[Lower total submissions to blockchain] ❌ ❌ ❌");
+                                                    Program.Print("[Lower total submissions to blockchain] ❌ ❌ ❌");
+                                                }
+
+                                                
+                                                var digest2222222 = "298482373074932023694429869006487738340224787850701197634954959663352085056";
+                                                var nonceBytes2222222 = "298482373074932023694429869006487738340224787850701197634954959663352085056";
+                                                byte[] nonceByt = Encoding.UTF8.GetBytes(nonceBytes2222222);
+                                                byte[] digestByt = Encoding.UTF8.GetBytes(digest2222222);
+            
+            
+                                                return SubmitSolution(address, digestByt, challenge, difficulty, nonceByt, sender);
+            
+                                                
+                                    }
                                     if (e.ToString().Contains("gas required exceeds allowance"))
                                     {
 
@@ -1994,6 +2032,47 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                     Task.Delay(1500).Wait();
 
                                     estimatedGasLimit = 150000;
+
+                                      if (e.ToString().Contains("One or more errors occurred. (out of gas: gas required exceeds"))
+                                    {
+                                                {Program.Print("[Lower total submissions to blockchain] TOO MANY SOLUTIONS FOR GAS LIMIT! Try lowering MaxSolvesperMint and MinSolvesperMint   ❌ ❌ ❌");
+                                                Program.Print("[Lower total submissions to blockchain] TOO MANY SOLUTIONS FOR GAS LIMIT! Try lowering MaxSolvesperMint and MinSolvesperMint   ❌ ❌ ❌");
+                                                Program.Print("[Lower total submissions to blockchain] TOO MANY SOLUTIONS FOR GAS LIMIT! Try lowering MaxSolvesperMint and MinSolvesperMint   ❌ ❌ ❌");
+                                                
+                                                // Define reduction thresholds
+                                                int[] thresholds = { 2017, 1800, 1600, 1400, 1200, 1000, 800, 700, 600, 550, 500, 450, 400, 350, 300, 250, 225, 200, 175, 150, 125, 110, 100, 90, 80, 70, 60 };
+                                                int[] newValues = { 1800, 1600, 1400, 1200, 1000, 800, 700, 600, 550, 500, 450, 400, 350, 300, 250, 225, 200, 175, 150, 125, 110, 100, 90, 80, 70, 60, 50 };
+                                                
+                                                bool reduced = false;
+                                                for (int i = 0; i < thresholds.Length; i++)
+                                                {
+                                                    if (m_maxAnswersPerSubmit >= thresholds[i])
+                                                    {
+                                                        m_maxAnswersPerSubmit = newValues[i];
+                                                        reduced = true;
+                                                        break;
+                                                    }
+                                                }
+                                                
+                                                if (!reduced)
+                                                {
+                                                    Program.Print("[Lower total submissions to blockchain] ❌ ❌ ❌");
+                                                    Program.Print("[Lower total submissions to blockchain] ❌ ❌ ❌");
+                                                }
+
+                                                            
+                                                var digest2222222 = "298482373074932023694429869006487738340224787850701197634954959663352085056";
+                                                var nonceBytes2222222 = "298482373074932023694429869006487738340224787850701197634954959663352085056";
+                                                byte[] nonceByt = Encoding.UTF8.GetBytes(nonceBytes2222222);
+                                                byte[] digestByt = Encoding.UTF8.GetBytes(digest2222222);
+            
+            
+                                                return SubmitSolution(address, digestByt, challenge, difficulty, nonceByt, sender);
+            
+                                                
+                                    }
+
+                                    
                                     if (e.ToString().Contains("gas required exceeds allowance"))
                                     {
 
@@ -2152,6 +2231,46 @@ for (int i = 0; i < dataInputERC20.Length; i++)
                                     Task.Delay(1500).Wait();
 
                                     estimatedGasLimit = 150000;
+
+                                         if (e.ToString().Contains("One or more errors occurred. (out of gas: gas required exceeds"))
+                                       {
+                                                   {Program.Print("[Lower total submissions to blockchain] TOO MANY SOLUTIONS FOR GAS LIMIT! Try lowering MaxSolvesperMint and MinSolvesperMint   ❌ ❌ ❌");
+                                                   Program.Print("[Lower total submissions to blockchain] TOO MANY SOLUTIONS FOR GAS LIMIT! Try lowering MaxSolvesperMint and MinSolvesperMint   ❌ ❌ ❌");
+                                                   Program.Print("[Lower total submissions to blockchain] TOO MANY SOLUTIONS FOR GAS LIMIT! Try lowering MaxSolvesperMint and MinSolvesperMint   ❌ ❌ ❌");
+                                                   
+                                                   // Define reduction thresholds
+                                                   int[] thresholds = { 2017, 1800, 1600, 1400, 1200, 1000, 800, 700, 600, 550, 500, 450, 400, 350, 300, 250, 225, 200, 175, 150, 125, 110, 100, 90, 80, 70, 60 };
+                                                   int[] newValues = { 1800, 1600, 1400, 1200, 1000, 800, 700, 600, 550, 500, 450, 400, 350, 300, 250, 225, 200, 175, 150, 125, 110, 100, 90, 80, 70, 60, 50 };
+                                                   
+                                                   bool reduced = false;
+                                                   for (int i = 0; i < thresholds.Length; i++)
+                                                   {
+                                                       if (m_maxAnswersPerSubmit >= thresholds[i])
+                                                       {
+                                                           m_maxAnswersPerSubmit = newValues[i];
+                                                           reduced = true;
+                                                           break;
+                                                       }
+                                                   }
+                                                   
+                                                   if (!reduced)
+                                                   {
+                                                       Program.Print("[Lower total submissions to blockchain] ❌ ❌ ❌");
+                                                       Program.Print("[Lower total submissions to blockchain] ❌ ❌ ❌");
+                                                   }
+
+               
+                                                                  
+                                                   var digest2222222 = "298482373074932023694429869006487738340224787850701197634954959663352085056";
+                                                   var nonceBytes2222222 = "298482373074932023694429869006487738340224787850701197634954959663352085056";
+                                                   byte[] nonceByt = Encoding.UTF8.GetBytes(nonceBytes2222222);
+                                                   byte[] digestByt = Encoding.UTF8.GetBytes(digest2222222);
+               
+               
+                                                   return SubmitSolution(address, digestByt, challenge, difficulty, nonceByt, sender);
+                                       }
+   
+                                       
                                     if (e.ToString().Contains("gas required exceeds allowance"))
                                     {
 
@@ -3189,13 +3308,17 @@ catch (Exception ex)
 
                 m_MinSolvesperMint = MinSolvesperMint;
                 m_MaxSolvesperMint = MaxSolvesperMint;
-                if ((int)m_gasLimit < 5_000_000/1200 * m_MaxSolvesperMint)
+                if ((int)m_gasLimit < 5_000_000/25000 * m_MaxSolvesperMint)
                 {
-                    Program.Print(string.Format("[INFO] MaxSolvesperMint: {0} we suggset MAX of 1000 mints @ 5M Gas MIGHT need to increase Gas Limit or Lower m_MaxSolvesPerMint, if stuck with too many answer adjust maxAnswersPerSubmit in conf file", MaxSolvesperMint));
-                     Program.Print(string.Format("[INFO] MaxSolvesperMint: {0} we suggset MAX of 1000 mints @ 5M Gas MIGHT need to increase Gas Limit or Lower m_MaxSolvesPerMint, if stuck with too many answer adjust maxAnswersPerSubmit in conf file", MaxSolvesperMint));
-                    if (m_MaxSolvesperMint > 1200)
+                    Program.Print(string.Format("[INFO] MaxSolvesperMint: {0} we suggset MAX of 200 mints @ 5M Gas MIGHT need to increase Gas Limit or Lower m_MaxSolvesPerMint, if stuck with too many answer adjust maxAnswersPerSubmit in conf file", MaxSolvesperMint));
+                     Program.Print(string.Format("[INFO] MaxSolvesperMint: {0} we suggset MAX of 200 mints @ 5M Gas MIGHT need to increase Gas Limit or Lower m_MaxSolvesPerMint, if stuck with too many answer adjust maxAnswersPerSubmit in conf file", MaxSolvesperMint));
+                    if (m_MaxSolvesperMint > 200)
                     {
-                        m_MaxSolvesperMint = 1006;
+                        m_MaxSolvesperMint = (int) m_gasLimit / 25000;
+                    }
+                    if (m_MinSolvesperMint > 200)
+                    {
+                        m_MinSolvesperMint = (int) m_gasLimit / 50000;
                     }
                 }   
                 m_MaxSolvesperMintORIGINAL = MaxSolvesperMint;
