@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v6.0": {
-      "B0xToken/1.5.8": {
+      "B0xToken/1.6.1": {
         "dependencies": {
           "BouncyCastle": "1.8.9",
           "Common.Logging.Core": "3.4.1",
@@ -540,7 +540,7 @@
     }
   },
   "libraries": {
-    "B0xToken/1.5.8": {
+    "B0xToken/1.6.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
