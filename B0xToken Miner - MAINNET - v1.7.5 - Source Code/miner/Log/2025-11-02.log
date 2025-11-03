@@ -1,0 +1,338 @@
+
+*** B0xToken 1.7.5 forked from IwYeo's SoliditySHA3Miner - Untouchable2k and crnxhh (2025) ***
+*** Built with .NET 6.0 SDK, VC++ 19.44.35213, gcc 4.8.5, nVidia CUDA SDK 12.8 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
+
+Donation addresses:
+ETH (or any ERC 20/918 tokens)	: 0x9172ff7884CEFED19327aDaCe9C470eF1796105c
+BTC                             : 3GS5J5hcG6Qcu9xHWGmJaV5ftWLmZuR255
+LTC                             : LbFkAto1qYt8RdTFHL871H4djendcHyCyB
+
+[2025-11-02T19:42:36] [INFO] King making disabled.
+[2025-11-02T19:42:36] [INFO] Solo mining mode.
+[2025-11-02T19:42:36] CUDA [INFO] Device not specified, default assign all CUDA devices.
+[2025-11-02T19:42:36] OpenCL [INFO] AMD APP device not specified, default assign all AMD APP devices.
+[2025-11-02T19:42:36] [INFO] Attempting to Mint these NFTs when time is right: [0x8cd995Db5D910A581eE2b4EAb61cf2C3B2621Fba, 0, 0x1, 2]
+[2025-11-02T19:42:36] [DEBUG] Clean ERC20 input: '0x4200000000000000000000000000000000000006'
+[2025-11-02T19:42:36] [DEBUG] Split into 1 ERC20 addresses
+[2025-11-02T19:42:36] [DEBUG] Processing ERC20 address 0: '0x4200000000000000000000000000000000000006'
+[2025-11-02T19:42:36] [INFO] Added ERC20 address: 0x4200000000000000000000000000000000000006
+[2025-11-02T19:42:36] [INFO] Attempting to Mint these NFTs when time is right: [0x8cd995Db5D910A581eE2b4EAb61cf2C3B2621Fba, 0, 0x1, 2]
+[2025-11-02T19:42:36] [INFO] ERC20 addresses to mint: 0x4200000000000000000000000000000000000006
+[2025-11-02T19:42:36] [INFO] Added NFT to mint when possible: Address=0x8cd995Db5D910A581eE2b4EAb61cf2C3B2621Fba, TokenID=0
+[2025-11-02T19:42:36] [INFO] Successfully parsed 1 ERC20 addresses
+[2025-11-02T19:42:36] [ERROR] Invalid NFT address length for 0x1. Should be 42 characters (0x + 40 hex)
+[2025-11-02T19:42:36] [INFO] m_maxAnswersPerSubmit: 2017
+[2025-11-02T19:42:36] [INFO] m_minSecondsPerAnswer: 0
+[2025-11-02T19:42:36] [Multiplier] IS: 1
+[2025-11-02T19:42:36] [INFO] Contract address : 0xd44Ee7dAdbF50214cA7009a29D9F88BCcD0E9Ff4
+[2025-11-02T19:42:36] [INFO] Successfully parsed 1 NFT pairs
+[2025-11-02T19:42:36] [INFO] mintToAddress address : 
+[2025-11-02T19:42:36] m_mint_ToAddress == '' so we assign minerAddress to mintToAddress
+[2025-11-02T19:42:36] [INFO] ABI specified, using "B0x.abi"
+[2025-11-02T19:42:36] [INFO] Gas limit: 1490000
+[2025-11-02T19:42:36] [INFO] Gas to mine: 1.32 GWei
+[2025-11-02T19:42:36] [INFO] Minimum Solutions per Mint: 2
+[2025-11-02T19:42:36] m_getCosts Function retrieved successfully
+[2025-11-02T19:42:36] m_getCostsALL Function retrieved successfully
+[2025-11-02T19:42:36] m_getBlockInfo Function retrieved successfully
+[2025-11-02T19:42:48] BLOCKS PER READJSTMENT 2016
+[2025-11-02T19:42:48] [INFO] Checking maximum target from network...
+[2025-11-02T19:42:48] CUDA [WARN] NvAPI64 library not found.
+[2025-11-02T19:42:48] CUDA ID: 0 [INFO] Assigning device...
+[2025-11-02T19:42:48] CUDA ID: 0 [INFO] Compute capability: 12.0
+[2025-11-02T19:42:48] CUDA ID: 0 [INFO] Assigned device (NVIDIA GeForce RTX 5070)...
+[2025-11-02T19:42:48] CUDA ID: 0 [INFO] Intensity: 29.4
+[2025-11-02T19:42:48] CUDA ID: 0 [INFO] Initializing device...
+[2025-11-02T19:42:49] CUDA ID: 0 [INFO] Device initialized successfully.
+[2025-11-02T19:42:49] [INFO] JSON-API service started at http://127.0.0.1:4078/...
+[2025-11-02T19:42:49] [INFO] Checking latest parameters from network...
+[2025-11-02T19:42:49] [INFO] ccminer-API service started at 127.0.0.1:4068...
+[2025-11-02T19:42:49] [MULTICALL RESULTS] Difficulty Success: True
+[2025-11-02T19:42:49] [MULTICALL RESULTS] Target Success: True
+[2025-11-02T19:42:49] [MULTICALL RESULTS] Challenge Success: True
+[2025-11-02T19:42:49] [MULTICALL RESULTS] epochToReadjustment Success: True
+[2025-11-02T19:42:49] [DEBUG] Converting difficulty...
+[2025-11-02T19:42:49] [DEBUG] Difficulty converted: 8388608000000
+[2025-11-02T19:42:49] [DEBUG] Converting challenge...
+[2025-11-02T19:42:49] [DEBUG] Converting target...
+[2025-11-02T19:42:49] [DEBUG] Target converted: 1725436586697640946858688965569256363112777243042596638790631055
+[2025-11-02T19:42:49] [DEBUG] Challenge converted: 550616276BABEDC8988B38266635740CA1F313CECF13D8F81E4C8C56418FE8D9
+[2025-11-02T19:42:49] [DEBUG] 11111111111111
+[2025-11-02T19:42:49] [DEBUG] miningParameters.ChallengeByte32String is null: False
+[2025-11-02T19:42:49] [DEBUG] miningParameters.ChallengeByte32 is null: False
+[2025-11-02T19:42:49] [DEBUG] miningParameters.Challenge is null: False
+[2025-11-02T19:42:49] [DEBUG] miningParameters.MiningTarget is null: False
+[2025-11-02T19:42:49] [INFO] New challenge detected 0x550616276babedc8988b38266635740ca1f313cecf13d8f81e4c8c56418fe8d9...
+[2025-11-02T19:42:49] [DEBUG] miningParameters.MiningTargetByte32String is null: False
+[2025-11-02T19:42:49] [INFO] New challenge detected: 550616276BABEDC8...
+[2025-11-02T19:42:49] [INFO] Challenge updated successfully: 550616276BABEDC8...
+[2025-11-02T19:42:49] [INFO] New target detected 0x00000000000431bde82d7b634dad31fcd24e160d887ebf22c01e68a0d349be8f...
+[2025-11-02T19:42:49] [INFO] New difficulty detected Normalized Difficulty = (16000000.00)...
+[2025-11-02T19:42:49] [INFO] New difficulty detected (8388608000000)...
+[2025-11-02T19:42:49] startfinding
+[2025-11-02T19:42:49] CUDA ID: 0 [INFO] Start mining...
+[2025-11-02T19:42:50] SubmitSolution2
+[2025-11-02T19:42:50] CUDA ID: 0 [INFO] Every 100 Seconds we will check if conditions are correct to submit verified answers
+[2025-11-02T19:42:50] This is to check for close to end of mining period to submit MinSolvesperMint if nessessary
+[2025-11-02T19:42:50] This is to check for close to end of mining period to submit MinSolvesperMint if nessessary
+[2025-11-02T19:42:50] This is to check for close to end of mining period to submit MinSolvesperMint if nessessary
+[2025-11-02T19:42:50] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-11-02T19:42:50] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-11-02T19:42:50] Mining Reward currently is: 25 tokens
+[2025-11-02T19:42:50] slowBlocksz 0
+[2025-11-02T19:42:50] NOT -1 EpochNumber go save Epoch2 Please
+[2025-11-02T19:42:50] Blocks From readjustment: 0
+[2025-11-02T19:42:50] NOT 2017 Mint go save Epoch Please
+[2025-11-02T19:42:50] Mining seconds until probably time to turn in answers: 1201270
+[2025-11-02T19:42:50] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-11-02T19:42:50] Blocks to readjustment: 2016
+[2025-11-02T19:42:50] Current counter Starts at:  0
+[2025-11-02T19:42:50] EPOCH UNTIL READJUSTMENT: 2016
+[2025-11-02T19:42:50] secondsFromTimetoTurnInAnswers 1201270
+[2025-11-02T19:42:50] OLD oldcurrentCounterLocatioNEnd Starts at:  0
+[2025-11-02T19:42:50] OLD oldCurrentCounter Starts at:  0
+[2025-11-02T19:42:50] Current currentCounterLocationStart Starts at:  0
+[2025-11-02T19:42:50] Current currentCounterLocationEnd Starts at:  0
+[2025-11-02T19:42:50] Waiting for next solution
+[2025-11-02T19:43:04] [INFO] Checking latest parameters from network...
+[2025-11-02T19:43:05] [MULTICALL RESULTS] Difficulty Success: True
+[2025-11-02T19:43:05] [MULTICALL RESULTS] Target Success: True
+[2025-11-02T19:43:05] [DEBUG] 11111111111111
+[2025-11-02T19:43:05] [MULTICALL RESULTS] epochToReadjustment Success: True
+[2025-11-02T19:43:05] [MULTICALL RESULTS] Challenge Success: True
+[2025-11-02T19:43:05] [DEBUG] Target converted: 1725436586697640946858688965569256363112777243042596638790631055
+[2025-11-02T19:43:05] [DEBUG] Converting challenge...
+[2025-11-02T19:43:05] [DEBUG] Difficulty converted: 8388608000000
+[2025-11-02T19:43:05] [DEBUG] Converting target...
+[2025-11-02T19:43:05] [DEBUG] Challenge converted: 550616276BABEDC8988B38266635740CA1F313CECF13D8F81E4C8C56418FE8D9
+[2025-11-02T19:43:05] [DEBUG] Converting difficulty...
+[2025-11-02T19:43:05] [DEBUG] miningParameters.MiningTargetByte32String is null: False
+[2025-11-02T19:43:05] [DEBUG] miningParameters.MiningTarget is null: False
+[2025-11-02T19:43:05] [DEBUG] miningParameters.Challenge is null: False
+[2025-11-02T19:43:05] [DEBUG] miningParameters.ChallengeByte32 is null: False
+[2025-11-02T19:43:05] [DEBUG] miningParameters.ChallengeByte32String is null: False
+[2025-11-02T19:43:19] [INFO] Checking latest parameters from network...
+[2025-11-02T19:43:19] [MULTICALL RESULTS] Difficulty Success: True
+[2025-11-02T19:43:19] [MULTICALL RESULTS] Target Success: True
+[2025-11-02T19:43:19] [DEBUG] Challenge converted: 550616276BABEDC8988B38266635740CA1F313CECF13D8F81E4C8C56418FE8D9
+[2025-11-02T19:43:19] [MULTICALL RESULTS] Challenge Success: True
+[2025-11-02T19:43:19] [MULTICALL RESULTS] epochToReadjustment Success: True
+[2025-11-02T19:43:19] [DEBUG] Converting difficulty...
+[2025-11-02T19:43:19] [DEBUG] Target converted: 1725436586697640946858688965569256363112777243042596638790631055
+[2025-11-02T19:43:19] [DEBUG] Converting target...
+[2025-11-02T19:43:19] [DEBUG] Difficulty converted: 8388608000000
+[2025-11-02T19:43:19] [DEBUG] Converting challenge...
+[2025-11-02T19:43:19] [DEBUG] 11111111111111
+[2025-11-02T19:43:19] [DEBUG] miningParameters.ChallengeByte32 is null: False
+[2025-11-02T19:43:19] [DEBUG] miningParameters.Challenge is null: False
+[2025-11-02T19:43:19] [DEBUG] miningParameters.ChallengeByte32String is null: False
+[2025-11-02T19:43:19] [DEBUG] miningParameters.MiningTargetByte32String is null: False
+[2025-11-02T19:43:19] [DEBUG] miningParameters.MiningTarget is null: False
+[2025-11-02T19:43:34] [INFO] Checking latest parameters from network...
+[2025-11-02T19:43:34] [MULTICALL RESULTS] Difficulty Success: True
+[2025-11-02T19:43:34] [MULTICALL RESULTS] Target Success: True
+[2025-11-02T19:43:34] [MULTICALL RESULTS] Challenge Success: True
+[2025-11-02T19:43:34] [MULTICALL RESULTS] epochToReadjustment Success: True
+[2025-11-02T19:43:34] [DEBUG] Converting difficulty...
+[2025-11-02T19:43:34] [DEBUG] Difficulty converted: 8388608000000
+[2025-11-02T19:43:34] [DEBUG] Target converted: 1725436586697640946858688965569256363112777243042596638790631055
+[2025-11-02T19:43:34] [DEBUG] Converting target...
+[2025-11-02T19:43:34] [DEBUG] Converting challenge...
+[2025-11-02T19:43:34] [DEBUG] Challenge converted: 550616276BABEDC8988B38266635740CA1F313CECF13D8F81E4C8C56418FE8D9
+[2025-11-02T19:43:34] [DEBUG] 11111111111111
+[2025-11-02T19:43:34] [DEBUG] miningParameters.ChallengeByte32 is null: False
+[2025-11-02T19:43:34] [DEBUG] miningParameters.MiningTargetByte32String is null: False
+[2025-11-02T19:43:34] [DEBUG] miningParameters.Challenge is null: False
+[2025-11-02T19:43:34] [DEBUG] miningParameters.ChallengeByte32String is null: False
+[2025-11-02T19:43:34] [DEBUG] miningParameters.MiningTarget is null: False
+[2025-11-02T19:43:48] [INFO] Total Hashrate: 0 MH/s (Effective) / 1820.8468 MH/s (Local),
+[2025-11-02T19:43:48] [INFO] Total Hashrate: 0 MH/s (Effective),  If Effective stays 0 for longer than say half an averageadjustment period time, it means you didn't mine any blocks. Try lowering MinSolvesperMint & minSecondsPerAnswer & maxUSDperToken variable in B0xToken.conf file to mine blocks sooner than others.
+[2025-11-02T19:43:48] [INFO] Estimated time left to solution: -(0d 0h 0m 59s)
+[2025-11-02T19:43:49] [INFO] Checking latest parameters from network...
+[2025-11-02T19:43:49] CUDA [INFO] Hashrates: 1820.6776 MH/s
+[2025-11-02T19:43:50] [MULTICALL RESULTS] Difficulty Success: True
+[2025-11-02T19:43:50] [MULTICALL RESULTS] Target Success: True
+[2025-11-02T19:43:50] [MULTICALL RESULTS] Challenge Success: True
+[2025-11-02T19:43:50] [MULTICALL RESULTS] epochToReadjustment Success: True
+[2025-11-02T19:43:50] [DEBUG] Difficulty converted: 8388608000000
+[2025-11-02T19:43:50] [DEBUG] Converting difficulty...
+[2025-11-02T19:43:50] [DEBUG] Converting target...
+[2025-11-02T19:43:50] [DEBUG] Target converted: 1725436586697640946858688965569256363112777243042596638790631055
+[2025-11-02T19:43:50] [DEBUG] Challenge converted: 550616276BABEDC8988B38266635740CA1F313CECF13D8F81E4C8C56418FE8D9
+[2025-11-02T19:43:50] [DEBUG] 11111111111111
+[2025-11-02T19:43:50] [DEBUG] Converting challenge...
+[2025-11-02T19:43:50] [DEBUG] miningParameters.ChallengeByte32 is null: False
+[2025-11-02T19:43:50] [DEBUG] miningParameters.Challenge is null: False
+[2025-11-02T19:43:50] [DEBUG] miningParameters.ChallengeByte32String is null: False
+[2025-11-02T19:43:50] [DEBUG] miningParameters.MiningTarget is null: False
+[2025-11-02T19:43:50] [DEBUG] miningParameters.MiningTargetByte32String is null: False
+[2025-11-02T19:43:50] SubmitSolution2
+[2025-11-02T19:43:50] CUDA ID: 0 [INFO] Every 100 Seconds we will check if conditions are correct to submit verified answers
+[2025-11-02T19:43:50] This is to check for close to end of mining period to submit MinSolvesperMint if nessessary
+[2025-11-02T19:43:50] Mining Reward currently is: 25 tokens
+[2025-11-02T19:43:50] This is to check for close to end of mining period to submit MinSolvesperMint if nessessary
+[2025-11-02T19:43:50] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-11-02T19:43:50] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-11-02T19:43:50] This is to check for close to end of mining period to submit MinSolvesperMint if nessessary
+[2025-11-02T19:43:51] slowBlocksz 0
+[2025-11-02T19:43:51] secondsFromTimetoTurnInAnswers 1201210
+[2025-11-02T19:43:51] NOT 2017 Mint go save Epoch Please
+[2025-11-02T19:43:51] Blocks From readjustment: 0
+[2025-11-02T19:43:51] Current counter Starts at:  0
+[2025-11-02T19:43:51] OLD oldcurrentCounterLocatioNEnd Starts at:  0
+[2025-11-02T19:43:51] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-11-02T19:43:51] NOT -1 EpochNumber go save Epoch2 Please
+[2025-11-02T19:43:51] Blocks to readjustment: 2016
+[2025-11-02T19:43:51] Mining seconds until probably time to turn in answers: 1201210
+[2025-11-02T19:43:51] Current currentCounterLocationStart Starts at:  0
+[2025-11-02T19:43:51] Current currentCounterLocationEnd Starts at:  0
+[2025-11-02T19:43:51] OLD oldCurrentCounter Starts at:  0
+[2025-11-02T19:43:51] EPOCH UNTIL READJUSTMENT: 2016
+[2025-11-02T19:43:51] Waiting for next solution
+
+*** B0xToken 1.7.5 forked from IwYeo's SoliditySHA3Miner - Untouchable2k and crnxhh (2025) ***
+*** Built with .NET 6.0 SDK, VC++ 19.44.35213, gcc 4.8.5, nVidia CUDA SDK 12.8 64-bit, and AMD APP SDK v3.0.130.135 (OpenCL)
+
+Donation addresses:
+ETH (or any ERC 20/918 tokens)	: 0x9172ff7884CEFED19327aDaCe9C470eF1796105c
+BTC                             : 3GS5J5hcG6Qcu9xHWGmJaV5ftWLmZuR255
+LTC                             : LbFkAto1qYt8RdTFHL871H4djendcHyCyB
+
+[2025-11-02T19:43:57] [INFO] King making disabled.
+[2025-11-02T19:43:57] [INFO] Solo mining mode.
+[2025-11-02T19:43:57] CUDA [INFO] Device not specified, default assign all CUDA devices.
+[2025-11-02T19:43:57] OpenCL [INFO] AMD APP device not specified, default assign all AMD APP devices.
+[2025-11-02T19:43:57] [DEBUG] Clean ERC20 input: '0x4200000000000000000000000000000000000006'
+[2025-11-02T19:43:57] [INFO] Attempting to Mint these NFTs when time is right: [0x8cd995Db5D910A581eE2b4EAb61cf2C3B2621Fba, 0, 0x1, 2]
+[2025-11-02T19:43:57] [DEBUG] Split into 1 ERC20 addresses
+[2025-11-02T19:43:57] [DEBUG] Processing ERC20 address 0: '0x4200000000000000000000000000000000000006'
+[2025-11-02T19:43:57] [INFO] Added ERC20 address: 0x4200000000000000000000000000000000000006
+[2025-11-02T19:43:57] [INFO] ERC20 addresses to mint: 0x4200000000000000000000000000000000000006
+[2025-11-02T19:43:57] [INFO] Added NFT to mint when possible: Address=0x8cd995Db5D910A581eE2b4EAb61cf2C3B2621Fba, TokenID=0
+[2025-11-02T19:43:57] [INFO] Attempting to Mint these NFTs when time is right: [0x8cd995Db5D910A581eE2b4EAb61cf2C3B2621Fba, 0, 0x1, 2]
+[2025-11-02T19:43:57] [INFO] Successfully parsed 1 ERC20 addresses
+[2025-11-02T19:43:57] [Multiplier] IS: 1
+[2025-11-02T19:43:57] [INFO] Successfully parsed 1 NFT pairs
+[2025-11-02T19:43:57] [ERROR] Invalid NFT address length for 0x1. Should be 42 characters (0x + 40 hex)
+[2025-11-02T19:43:57] [INFO] mintToAddress address : 
+[2025-11-02T19:43:57] [INFO] m_minSecondsPerAnswer: 0
+[2025-11-02T19:43:57] [INFO] Contract address : 0xd44Ee7dAdbF50214cA7009a29D9F88BCcD0E9Ff4
+[2025-11-02T19:43:57] [INFO] m_maxAnswersPerSubmit: 2017
+[2025-11-02T19:43:57] m_mint_ToAddress == '' so we assign minerAddress to mintToAddress
+[2025-11-02T19:43:57] [INFO] ABI specified, using "B0x.abi"
+[2025-11-02T19:43:57] [INFO] Gas to mine: 1.32 GWei
+[2025-11-02T19:43:57] [INFO] Gas limit: 1490000
+[2025-11-02T19:43:57] [INFO] Minimum Solutions per Mint: 1
+[2025-11-02T19:43:57] m_getCosts Function retrieved successfully
+[2025-11-02T19:43:57] m_getCostsALL Function retrieved successfully
+[2025-11-02T19:43:57] m_getBlockInfo Function retrieved successfully
+[2025-11-02T19:43:57] BLOCKS PER READJSTMENT 2016
+[2025-11-02T19:43:57] [INFO] Checking maximum target from network...
+[2025-11-02T19:43:57] CUDA [WARN] NvAPI64 library not found.
+[2025-11-02T19:43:57] CUDA ID: 0 [INFO] Assigning device...
+[2025-11-02T19:43:57] CUDA ID: 0 [INFO] Assigned device (NVIDIA GeForce RTX 5070)...
+[2025-11-02T19:43:57] CUDA ID: 0 [INFO] Initializing device...
+[2025-11-02T19:43:57] CUDA ID: 0 [INFO] Compute capability: 12.0
+[2025-11-02T19:43:57] CUDA ID: 0 [INFO] Intensity: 29.4
+[2025-11-02T19:43:57] CUDA ID: 0 [INFO] Device initialized successfully.
+[2025-11-02T19:43:57] [ERROR] JSON-API failed to bind to: http://127.0.0.1:4078
+[2025-11-02T19:43:57] [ERROR] ccminer-API failed to bind to: 127.0.0.1:4068
+[2025-11-02T19:43:57] [INFO] Checking latest parameters from network...
+[2025-11-02T19:43:58] [MULTICALL RESULTS] Difficulty Success: True
+[2025-11-02T19:43:58] [MULTICALL RESULTS] Target Success: True
+[2025-11-02T19:43:58] [MULTICALL RESULTS] epochToReadjustment Success: True
+[2025-11-02T19:43:58] [DEBUG] Converting difficulty...
+[2025-11-02T19:43:58] [MULTICALL RESULTS] Challenge Success: True
+[2025-11-02T19:43:58] [DEBUG] Difficulty converted: 8388608000000
+[2025-11-02T19:43:58] [DEBUG] Converting challenge...
+[2025-11-02T19:43:58] [DEBUG] Converting target...
+[2025-11-02T19:43:58] [DEBUG] Target converted: 1725436586697640946858688965569256363112777243042596638790631055
+[2025-11-02T19:43:58] [DEBUG] Challenge converted: 550616276BABEDC8988B38266635740CA1F313CECF13D8F81E4C8C56418FE8D9
+[2025-11-02T19:43:58] [DEBUG] 11111111111111
+[2025-11-02T19:43:58] [DEBUG] miningParameters.ChallengeByte32 is null: False
+[2025-11-02T19:43:58] [DEBUG] miningParameters.ChallengeByte32String is null: False
+[2025-11-02T19:43:58] [DEBUG] miningParameters.Challenge is null: False
+[2025-11-02T19:43:58] [DEBUG] miningParameters.MiningTarget is null: False
+[2025-11-02T19:43:58] [INFO] New challenge detected 0x550616276babedc8988b38266635740ca1f313cecf13d8f81e4c8c56418fe8d9...
+[2025-11-02T19:43:58] [DEBUG] miningParameters.MiningTargetByte32String is null: False
+[2025-11-02T19:43:58] [INFO] New challenge detected: 550616276BABEDC8...
+[2025-11-02T19:43:58] [INFO] Challenge updated successfully: 550616276BABEDC8...
+[2025-11-02T19:43:58] [INFO] New target detected 0x00000000000431bde82d7b634dad31fcd24e160d887ebf22c01e68a0d349be8f...
+[2025-11-02T19:43:58] [INFO] New difficulty detected Normalized Difficulty = (16000000.00)...
+[2025-11-02T19:43:58] [INFO] New difficulty detected (8388608000000)...
+[2025-11-02T19:43:58] startfinding
+[2025-11-02T19:43:58] CUDA ID: 0 [INFO] Start mining...
+[2025-11-02T19:43:59] SubmitSolution2
+[2025-11-02T19:43:59] CUDA ID: 0 [INFO] Every 100 Seconds we will check if conditions are correct to submit verified answers
+[2025-11-02T19:43:59] This is to check for close to end of mining period to submit MinSolvesperMint if nessessary
+[2025-11-02T19:43:59] This is to check for close to end of mining period to submit MinSolvesperMint if nessessary
+[2025-11-02T19:43:59] This is to check for close to end of mining period to submit MinSolvesperMint if nessessary
+[2025-11-02T19:43:59] !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+[2025-11-02T19:43:59] [INFO] Please enter your personal Address and Private Key in B0xToken.conf Config File, using exposed privateKey
+[2025-11-02T19:43:59] Mining Reward currently is: 25 tokens
+[2025-11-02T19:43:59] slowBlocksz 0
+[2025-11-02T19:43:59] secondsFromTimetoTurnInAnswers 1201202
+[2025-11-02T19:43:59] Blocks From readjustment: 0
+[2025-11-02T19:43:59] Mining seconds until probably time to turn in answers: 1201202
+[2025-11-02T19:43:59] Blocks to readjustment: 2016
+[2025-11-02T19:43:59] NOT -1 EpochNumber go save Epoch2 Please
+[2025-11-02T19:43:59] NOT 2017 Mint go save Epoch Please
+[2025-11-02T19:43:59] Should we turn in Answers because we are close to Emergency Difficulty Adjustment: False
+[2025-11-02T19:43:59] Current counter Starts at:  0
+[2025-11-02T19:43:59] EPOCH UNTIL READJUSTMENT: 2016
+[2025-11-02T19:43:59] Current currentCounterLocationStart Starts at:  0
+[2025-11-02T19:43:59] Current currentCounterLocationEnd Starts at:  0
+[2025-11-02T19:43:59] OLD oldCurrentCounter Starts at:  0
+[2025-11-02T19:43:59] OLD oldcurrentCounterLocatioNEnd Starts at:  0
+[2025-11-02T19:43:59] Waiting for next solution
+[2025-11-02T19:44:04] [INFO] Checking latest parameters from network...
+[2025-11-02T19:44:04] [MULTICALL RESULTS] Target Success: True
+[2025-11-02T19:44:04] [DEBUG] Converting challenge...
+[2025-11-02T19:44:04] [DEBUG] 11111111111111
+[2025-11-02T19:44:04] [MULTICALL RESULTS] Difficulty Success: True
+[2025-11-02T19:44:04] [MULTICALL RESULTS] epochToReadjustment Success: True
+[2025-11-02T19:44:04] [DEBUG] Converting difficulty...
+[2025-11-02T19:44:04] [DEBUG] Difficulty converted: 8388608000000
+[2025-11-02T19:44:04] [DEBUG] Converting target...
+[2025-11-02T19:44:04] [DEBUG] Target converted: 1725436586697640946858688965569256363112777243042596638790631055
+[2025-11-02T19:44:04] [DEBUG] Challenge converted: 550616276BABEDC8988B38266635740CA1F313CECF13D8F81E4C8C56418FE8D9
+[2025-11-02T19:44:04] [MULTICALL RESULTS] Challenge Success: True
+[2025-11-02T19:44:04] [DEBUG] miningParameters.Challenge is null: False
+[2025-11-02T19:44:04] [DEBUG] miningParameters.MiningTargetByte32String is null: False
+[2025-11-02T19:44:04] [DEBUG] miningParameters.ChallengeByte32 is null: False
+[2025-11-02T19:44:04] [DEBUG] miningParameters.MiningTarget is null: False
+[2025-11-02T19:44:04] [DEBUG] miningParameters.ChallengeByte32String is null: False
+[2025-11-02T19:44:13] [INFO] Checking latest parameters from network...
+[2025-11-02T19:44:13] [MULTICALL RESULTS] Difficulty Success: True
+[2025-11-02T19:44:13] [MULTICALL RESULTS] Challenge Success: True
+[2025-11-02T19:44:13] [DEBUG] Difficulty converted: 8388608000000
+[2025-11-02T19:44:13] [MULTICALL RESULTS] epochToReadjustment Success: True
+[2025-11-02T19:44:13] [DEBUG] Converting difficulty...
+[2025-11-02T19:44:13] [DEBUG] Converting challenge...
+[2025-11-02T19:44:13] [DEBUG] Target converted: 1725436586697640946858688965569256363112777243042596638790631055
+[2025-11-02T19:44:13] [DEBUG] Converting target...
+[2025-11-02T19:44:13] [MULTICALL RESULTS] Target Success: True
+[2025-11-02T19:44:13] [DEBUG] Challenge converted: 550616276BABEDC8988B38266635740CA1F313CECF13D8F81E4C8C56418FE8D9
+[2025-11-02T19:44:13] [DEBUG] 11111111111111
+[2025-11-02T19:44:13] [DEBUG] miningParameters.ChallengeByte32 is null: False
+[2025-11-02T19:44:13] [DEBUG] miningParameters.ChallengeByte32String is null: False
+[2025-11-02T19:44:13] [DEBUG] miningParameters.MiningTargetByte32String is null: False
+[2025-11-02T19:44:13] [DEBUG] miningParameters.Challenge is null: False
+[2025-11-02T19:44:13] [DEBUG] miningParameters.MiningTarget is null: False
+[2025-11-02T19:44:19] [INFO] Checking latest parameters from network...
+[2025-11-02T19:44:19] [MULTICALL RESULTS] Difficulty Success: True
+[2025-11-02T19:44:19] [MULTICALL RESULTS] Target Success: True
+[2025-11-02T19:44:19] [DEBUG] Challenge converted: 550616276BABEDC8988B38266635740CA1F313CECF13D8F81E4C8C56418FE8D9
+[2025-11-02T19:44:19] [MULTICALL RESULTS] Challenge Success: True
+[2025-11-02T19:44:19] [MULTICALL RESULTS] epochToReadjustment Success: True
+[2025-11-02T19:44:19] [DEBUG] Converting difficulty...
+[2025-11-02T19:44:19] [DEBUG] Difficulty converted: 8388608000000
+[2025-11-02T19:44:19] [DEBUG] Target converted: 1725436586697640946858688965569256363112777243042596638790631055
+[2025-11-02T19:44:19] [DEBUG] Converting target...
+[2025-11-02T19:44:19] [DEBUG] Converting challenge...
+[2025-11-02T19:44:19] [DEBUG] 11111111111111
+[2025-11-02T19:44:19] [DEBUG] miningParameters.ChallengeByte32 is null: False
+[2025-11-02T19:44:19] [DEBUG] miningParameters.ChallengeByte32String is null: False
+[2025-11-02T19:44:19] [DEBUG] miningParameters.MiningTarget is null: False
+[2025-11-02T19:44:19] [DEBUG] miningParameters.Challenge is null: False
+[2025-11-02T19:44:19] [DEBUG] miningParameters.MiningTargetByte32String is null: False
